@@ -10,11 +10,12 @@ import re
 
 
 def cleanDate(d, dateKey = '260c'):
-    '''finds the input dateKey in the dictionary d. The value is expected to be a list of strings.
-    strips the first 4 digits from the first string in this list, and replaces the list with these digits.
-    If fewer than 4 consecutive numbers are found, this element is removed from the dictionary'''
+    '''Finds the input dateKey in the dictionary d. The value is expected to be a list of strings.
+    strips the first instance of exactly 4 consecutive digits 4 digits from the first string in this list, 
+    and replaces the list with these digits. If there never appear 4 consecutive digits then this element is 
+    removed from the dictionary.'''
     try:
-        d[dateKey] = int(re.findall('\d\d\d\d+', d[dateKey][0])[0])
+        d[dateKey] = int(re.findall(r'(?<!\d)\d{4}(?!\d)', d[dateKey][0])[0])
     except:
         if dateKey in d.keys(): 
             d.pop(dateKey) 
@@ -84,8 +85,6 @@ def XML2DB(XML, db):
                 cleanDate(d, '260c')
 
                 if len(d) == fields:
-                    recordID += 1
-                    writeCount += 1
                     #insert row into 'Record' table
                     t = (recordID,
                          d['050a'][0],
@@ -96,6 +95,8 @@ def XML2DB(XML, db):
                         t = (recordID, location)
                         c.execute("INSERT INTO Location VALUES (?,?)", t)
                     del(t)
+                    recordID += 1
+                    writeCount += 1
                 del(d)
             elem.clear()
             root.clear()
