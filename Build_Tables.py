@@ -35,7 +35,7 @@ def XML2DB(XML, db):
                         pubDate integer
                         )'''
                   )
-        c.execute('''CREATE TABLE IF NOT EXISTS Location (
+        c.execute('''CREATE TABLE IF NOT EXISTS Subject_Location (
                         recordID integer,
                         subjectLocation text,
                         FOREIGN KEY (recordID) REFERENCES Record(recordID)
@@ -93,7 +93,7 @@ def XML2DB(XML, db):
                     c.execute("INSERT INTO Record VALUES (?,?,?,?)", t)
                     for location in d['651a']:
                         t = (recordID, location)
-                        c.execute("INSERT INTO Location VALUES (?,?)", t)
+                        c.execute("INSERT INTO Subject_Location VALUES (?,?)", t)
                     del(t)
                     recordID += 1
                     writeCount += 1
