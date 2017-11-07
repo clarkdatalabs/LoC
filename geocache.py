@@ -1,7 +1,8 @@
 
-import geopy
+#import geopy
 import pickle
 import sqlite3
+from geopy.geocoders import Bing
 
 class Cache(object):
     def __init__(self, fn='LoC.db'):
@@ -15,24 +16,47 @@ class Cache(object):
         conn.commit()
 
     def location_cached(self, locationString):
+        #Returns False if no row exists for locationString
+        #Returns None if a row exists for locationString, but no geoBLOB was returned from the geocoder for this string
         cur = self.conn.cursor()
-        cur.execute('SELECT geoBLOB FROM Geocache WHERE locationString=?', (locationString,))
+        cur.execute('SELECT * FROM Geocache WHERE locationString=?', (locationString,))
         res = cur.fetchone()
-        if res is None: return False
-        return pickle.loads(res[0])
+        #res == None if no row was found for locationString 
+        if res == None: return False
+        return pickle.loads(res[1])
 
     def save_to_cache(self, locationString, geoBLOB):
+        #if the returned geoBLOB is populated, store a flattened version of the .raw result
+        if not geoBLOB == None:
+            geoBLOB = geoBLOB.raw
         cur = self.conn.cursor()
         cur.execute('INSERT INTO Geocache(locationString, geoBLOB) VALUES(?, ?)',
                     (locationString, sqlite3.Binary(pickle.dumps(geoBLOB, -1))))
         self.conn.commit()
+        return(geoBLOB)
+        
+    def get_geoBLOB(self, locationString, geolocator = Bing("AoHjJBfB_lnIWNP201cRJ70AItSb0hRGuIv2YvGpEOtUmDe41W9kghqEdUlZcMQz")):
+        try:
+            #first check cache for geoBLOB
+            geoBLOB = self.location_cached(locationString)
+            #if no row found, call geocoder and save results to cache
+            if geoBLOB == False:
+                print("querying: \'", locationString, "\'", sep='')
+                geoBLOB = geolocator.geocode(query = locationString,
+                                             exactly_one=True,
+                                             include_country_code=True)
+                geoBLOB = self.save_to_cache(locationString, geoBLOB)
+            return(geoBLOB)
+        except Exception as inst:
+            print("ERROR: For locationString = \'",locationString,"\', the following error was encountered: ", inst, sep='')
+            
+
   
   
         
 if __name__ == '__main__':
     # run a small test in this case
     import pprint
-    from geopy.geocoders import Bing
     BingAPIkey = "AoHjJBfB_lnIWNP201cRJ70AItSb0hRGuIv2YvGpEOtUmDe41W9kghqEdUlZcMQz"
     geolocator = Bing(BingAPIkey)
 
