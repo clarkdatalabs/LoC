@@ -39,6 +39,10 @@ conn.close()
 disk_engine = create_engine('sqlite:///LoC.db')
 pd.read_csv('ClusteringFiles/subject_location_refined.csv').to_sql('Subject_Location_Refined', disk_engine, if_exists='replace', index=False)
 
+#save country code and state code table to db
+pd.read_csv('Countries.csv').to_sql('Countries', disk_engine, if_exists='replace', index=False)
+pd.read_csv('USAstates.csv').to_sql('USAstates', disk_engine, if_exists='replace', index=False)
+
 #------------------------#
 
 #Build out Locations table with any locations. Simultaneously builds Geocache table.
@@ -49,7 +53,7 @@ locations = c.execute('SELECT DISTINCT subjectLocationRefined FROM Subject_Locat
 cache = geocache.Cache("LoC.db")
 
 i=0
-for locationTuple in locations:
+for locationTuple in locations[0:2]:
     i+=1
     locationString = locationTuple[0]
     #get the geoBLOB to parse
@@ -82,8 +86,36 @@ conn.commit()
 conn.close()
    
 
+#construct View with location and record data in one table
+conn = sqlite3.connect(db)
+c = conn.cursor()
 
-    
+c.execute('DROP VIEW IF EXISTS Book_Subject_Location')
+conn.commit()
 
+#Create View with one row per subject location (sometimes multiple per record)
+c.execute('''CREATE VIEW Book_Subject_Location AS 
+               SELECT DISTINCT  r.recordID,
+                                r.pubDate,
+                                l.country,
+                                c.countryName,
+                                l.USAstate,
+                                u.stateName
+                      FROM 
+                       (Subject_Location_Refined s 
+                           LEFT JOIN Location l 
+                               ON s.subjectLocationRefined = l.locationString)
+                        LEFT JOIN Record r
+                            ON r.recordID = s.recordID
+                        LEFT JOIN Countries c
+                            ON l.country = c.countryID
+                        LEFT JOIN USAstates u
+                            ON l.USAstate = u.stateID
+                WHERE l.country IS NOT NULL
+                ORDER BY r.pubDate
+               ''') 
+conn.commit()
+conn.close()
+   
 
 
