@@ -98,8 +98,8 @@ c.execute('''CREATE VIEW Book_Subject_Location AS
                SELECT DISTINCT  r.recordID,
                                 r.pubDate,
                                 l.country,
-                                c.countryName,
                                 l.USAstate,
+                                c.countryName,
                                 u.stateName
                       FROM 
                        (Subject_Location_Refined s 
