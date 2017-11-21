@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Page metadata -->
+		<title>Library of Congress Geographic Subjects</title>
+		<meta charset="utf-8">
+		<style>
+		svg {
+			background: #2E2F4F;
+		}
+		.country {
+			fill: #cccccc;
+			stroke: white;
+			stroke-width: 0.5;
+		}
+		.selected {
+		fill: orange;
+		}
+		
+		</style>
+	</head>
+	
+	<body>
+		<div id="map">
+			<!-- <svg height="400", width="800">_</svg> -->
+		</div>
+		
+		<!-- Load the D3 graphing library and topojson library -->
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="https://d3js.org/topojson.v2.min.js"></script>
+		
+		<!-- Run the actual visualization -->
+		<script src="scripts/visualization.js"></script>
+		
+	</body>
+
+</html>

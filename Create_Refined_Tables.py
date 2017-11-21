@@ -15,11 +15,14 @@ conn = sqlite3.connect(db)
 c = conn.cursor()
 
 #Initialize Location table
+#c.execute('DROP TABLE IF EXISTS Location')
+#conn.commit()
+
 c.execute('''CREATE TABLE IF NOT EXISTS Location (
                locationString STRING PRIMARY KEY, 
                latitude REAL, 
                longitude REAL, 
-               country TEXT, 
+               ISOalpha2 TEXT, 
                USAstate TEXT
                )''')
 
@@ -40,7 +43,7 @@ disk_engine = create_engine('sqlite:///LoC.db')
 pd.read_csv('ClusteringFiles/subject_location_refined.csv').to_sql('Subject_Location_Refined', disk_engine, if_exists='replace', index=False)
 
 #save country code and state code table to db
-pd.read_csv('Countries.csv').to_sql('Countries', disk_engine, if_exists='replace', index=False)
+pd.read_csv('Countries.csv', encoding = "ISO-8859-1").to_sql('Countries', disk_engine, if_exists='replace', index=False)
 pd.read_csv('USAstates.csv').to_sql('USAstates', disk_engine, if_exists='replace', index=False)
 
 #------------------------#
@@ -97,9 +100,10 @@ conn.commit()
 c.execute('''CREATE VIEW Book_Subject_Location AS 
                SELECT DISTINCT  r.recordID,
                                 r.pubDate,
-                                l.country,
-                                l.USAstate,
+                                l.ISOalpha2,
                                 c.countryName,
+                                c.ISOnumeric3,
+                                l.USAstate,
                                 u.stateName
                       FROM 
                        (Subject_Location_Refined s 
@@ -108,13 +112,29 @@ c.execute('''CREATE VIEW Book_Subject_Location AS
                         LEFT JOIN Record r
                             ON r.recordID = s.recordID
                         LEFT JOIN Countries c
-                            ON l.country = c.countryID
+                            ON l.ISOalpha2 = c.ISOalpha2
                         LEFT JOIN USAstates u
                             ON l.USAstate = u.stateID
-                WHERE l.country IS NOT NULL
+                WHERE l.ISOalpha2 IS NOT NULL
                 ORDER BY r.pubDate
                ''') 
 conn.commit()
+
+locationSummary = pd.read_sql_query('''SELECT 
+                                 ISOnumeric3,
+                                 ISOalpha2,
+                                 countryName, 
+                                 COUNT(recordID) AS count
+                             FROM 
+                                 Book_Subject_Location
+                             WHERE
+                                 ISOnumeric3 IS NOT NULL
+                             GROUP BY
+                                 ISOnumeric3''', conn)
+                                 
+locationSummary.to_csv("location_summary.csv", index = False)
+
+
 conn.close()
    
 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<body>
+
+<h1 id="demo">My First Web Page</h1>
+
+<svg width="960" height="600" fill="none" stroke-linejoin="round" stroke-linecap="round"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://unpkg.com/topojson@3.0.2/dist/topojson.js"></script>
+<script>
+
+var svg = d3.select("svg");
+
+var path = d3.geoPath();
+
+d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
+	  if (error) throw error;
+
+	  svg.append("g")
+	      .attr("fill", "#000")
+	    .selectAll("path")
+	    .data(topojson.feature(us, us.objects.states).features)
+	    .enter().append("path")
+	      .attr("d", path)
+	    .append("title")
+	      .text(function(d) { return d.id; });
+
+	  svg.append("path")
+	      .attr("stroke", "#fff")
+	      .attr("stroke-width", 0.5)
+	      .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
+
+
+/* d3.json("world110m.json", function(error, world) {
+	if (error) throw error;
+  
+  document.getElementById("demo").innerHTML = error
+  
+	svg.append("g")
+	  		.attr("fill", "#000")
+		.selectAll("path")
+		.data(topojson.feature(world, world.objects.countries).features)
+		.enter().append("path")
+		  	.attr("d", path)
+		.append("title")
+		  	.text(function(d) { return d.id; }); 
+	
+	svg.append("path")
+		.attr("stroke", "#fff")
+	  	.attr("stroke-width", 0.5)
+	  	.attr("d", path(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; })));
+  
+ */
+  
+});
+
+</body>
+</script>
