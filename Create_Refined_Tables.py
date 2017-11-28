@@ -101,6 +101,7 @@ c.execute('''CREATE VIEW Book_Subject_Location AS
                SELECT DISTINCT  r.recordID,
                                 r.pubDate,
                                 l.ISOalpha2,
+                                c.ISOalpha3,
                                 c.countryName,
                                 c.ISOnumeric3,
                                 l.USAstate,
@@ -115,14 +116,16 @@ c.execute('''CREATE VIEW Book_Subject_Location AS
                             ON l.ISOalpha2 = c.ISOalpha2
                         LEFT JOIN USAstates u
                             ON l.USAstate = u.stateID
-                WHERE l.ISOalpha2 IS NOT NULL
+                WHERE c.ISOalpha3 IS NOT NULL
                 ORDER BY r.pubDate
                ''') 
 conn.commit()
 
+#create table aggregating all years together
 locationSummary = pd.read_sql_query('''SELECT 
                                  ISOnumeric3,
                                  ISOalpha2,
+                                 ISOalpha3,
                                  countryName, 
                                  COUNT(recordID) AS count
                              FROM 
@@ -134,6 +137,22 @@ locationSummary = pd.read_sql_query('''SELECT
                                  
 locationSummary.to_csv("location_summary.csv", index = False)
 
+#create table of counts grouping by year and country
+locationByYear = pd.read_sql_query('''SELECT 
+                                 ISOnumeric3,
+                                 ISOalpha2,
+                                 ISOalpha3,
+                                 countryName,
+                                 pubDate, 
+                                 COUNT(recordID) AS count
+                             FROM 
+                                 Book_Subject_Location
+                             WHERE
+                                 ISOnumeric3 IS NOT NULL
+                             GROUP BY
+                                 ISOnumeric3, pubDate ''', conn)
+                                 
+locationByYear.to_csv("location_by_year.csv", index = False)
 
 conn.close()
    
