@@ -59,7 +59,7 @@ function ready (error, data, dataAlpha, LoC) {
 	var maxCount = d3.max(LoC, function(d) { return d.count; });
 	var baseColor = "#cccccc"
 	var countryColor = d3.scalePow()
-		.exponent(.3)
+		.exponent(.25)	//change the curve for which the color scales
 		.domain([0,maxCount])
 		.range([baseColor, "red"])
 		.clamp(true);
