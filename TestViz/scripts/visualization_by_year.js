@@ -53,11 +53,13 @@ function ready (error, data, LoC) {
 	var maxCount = d3.max(LoC, function(d) { return d.count; });
 	var baseColor = "#cccccc"
 	var countryColor = d3.scalePow()
-		.exponent(.15)
-		.domain([0,maxCount])
+		.exponent(.2)
+		.domain([0,800])
 		.range([baseColor, "red"])
+		//.ticks(3)
 		.clamp(true);
 	
+	console.log("test color: " + countryColor(200))
 	
 	//build LoCData array	
 	var LoCData = {};
@@ -65,7 +67,7 @@ function ready (error, data, LoC) {
 		if (LoCData[d.ISOnumeric3] == undefined){
 			LoCData[d.ISOnumeric3] = {}
 		}
-		LoCData[d.ISOnumeric3][d.pubDate]= d.count
+		LoCData[d.ISOnumeric3][d.pubDate]= countryColor(d.count)
 				}
 	)
 	
@@ -80,46 +82,43 @@ function ready (error, data, LoC) {
 	var countries = topojson.feature(data, data.objects.countries).features	
 	
 	//Draw initial country shapes
-//	svg.selectAll(".country")
-//		.data(countries)
-//		.enter().append("path")
-//		.attr("class", "country")
-//		.attr("d", path)
-//		.attr("fill", null)
-//		//.attr("fill", baseColor)
+	svgSelection = svg.selectAll(".country")
+		.data(countries)
+		.enter().append("path")
+		.attr("class", "country")
+		.attr("d", path)
+		.attr("fill", null)
+		.attr("fill", baseColor)
+		//add the class 'selected'
+		.on('mouseover', function(d) {
+			d3.select(this)
+				.classed("selected", true)
+				.moveToFront()
+		})
+		//remove the class 'selected'
+		.on('mouseout', function(d) {
+			d3.select(this)
+				.classed("selected", false)
+		})
 	
 	
 	//updates the graphic periodically
 	function updateDraw(elapsed){
 	//draw countries
-		year = Math.floor(elapsed/1000)+1900
+		year = (Math.floor(elapsed/timeStep) % 110) +1900
 		
 		console.log("year: " + year	)
-		
-		
-		svg.selectAll("country")
-			.data(countries)
-			.enter().append("path")
-			.attr("class", "country")
-			.attr("d", path)
-			
+				
 			//change fill color to scale with count
-			.attr("fill", function(d){
+			svgSelection.attr("fill", function(d){
 				//return countryColor(d.id) 
 				if (LoCData[parseInt(d.id)] != undefined){
 					if (LoCData[parseInt(d.id)][year] != undefined){
 						//console.log(LoCData[parseInt(d.id)][parseInt(year)])
-						return countryColor(LoCData[parseInt(d.id)][year]);
+						return LoCData[parseInt(d.id)][year];
 					} else {return baseColor}
 				} else {return baseColor}
 			})
-			
-			//define .count attribute
-/*			.attr("count",function(d){
-				if (LoCData[parseInt(d.id)][year] !== undefined){
-					return LoCData[parseInt(d.id)][year].count;
-				} else {return 0}
-			})*/
 			
 			//add the class 'selected'
 			.on('mouseover', function(d) {
@@ -135,7 +134,8 @@ function ready (error, data, LoC) {
 	}
 	
 	//d3.interval(updateDraw(Math.floor(elapsed/1000)+1800),1000);
-	d3.interval(updateDraw,1000);
+	var timeStep = 200
+	d3.interval(updateDraw,timeStep);
 	
 	console.log("data:")
 	console.log(data);
