@@ -54,21 +54,19 @@ function ready (error, data, LoC) {
 	var baseColor = "#cccccc"
 	var countryColor = d3.scalePow()
 		.exponent(.2)
-		.domain([0,800])
-		.range([baseColor, "red"])
+		.domain([0,maxCount])
+		.range([baseColor, "green"])
 		//.ticks(3)
 		.clamp(true);
 	
-	console.log("test color: " + countryColor(200))
-	
-	//build LoCData array	
+	//build LoCData data object	
 	var LoCData = {};
 	LoC.forEach( function(d){
-		if (LoCData[d.ISOnumeric3] == undefined){
-			LoCData[d.ISOnumeric3] = {}
-		}
-		LoCData[d.ISOnumeric3][d.pubDate]= countryColor(d.count)
-				}
+					if (LoCData[d.ISOnumeric3] == undefined){
+						LoCData[d.ISOnumeric3] = {}
+					}
+					LoCData[d.ISOnumeric3][d.pubDate]= countryColor(d.count)
+					}
 	)
 	
 
@@ -76,31 +74,52 @@ function ready (error, data, LoC) {
 	console.log("LoCData:")
 	console.log(LoCData);
 	
-	console.log(countryColor(LoCData[8][1999]))
 	
 	//extract country features
 	var countries = topojson.feature(data, data.objects.countries).features	
 	
+	
 	//Draw initial country shapes
-	svgSelection = svg.selectAll(".country")
+	countrySelection = svg.selectAll(".country")
 		.data(countries)
 		.enter().append("path")
 		.attr("class", "country")
 		.attr("d", path)
 		.attr("fill", null)
 		.attr("fill", baseColor)
-		//add the class 'selected'
+		
+		//add the class 'highlighted' on mouseover
 		.on('mouseover', function(d) {
 			d3.select(this)
-				.classed("selected", true)
+				.classed("highlighted", true)
 				.moveToFront()
+			d3.selectAll(".selected")	//bring selected country to the front
+				.moveToFront()
+				
 		})
-		//remove the class 'selected'
+		//remove the class 'highlighted'
 		.on('mouseout', function(d) {
 			d3.select(this)
-				.classed("selected", false)
+				.classed("highlighted", false)
+		})
+		
+		//add the class 'selected' on click
+		.on('click', function(d){
+			clickSelection = d3.select(this)
+				clickSelection.classed("selected", function(d){
+					if (clickSelection.classed("selected")){
+						return false	//if already selected, unselect it
+					} else {
+						d3.selectAll(".selected").classed("selected", false);	//clear previous selection
+						clickSelection.moveToFront()	//bring selected country to front of draw order
+						return true}
+				})
+			//how do I access data attributes of clickSelection?
+			console.log("clickSelection: " + clickSelection)
+			
 		})
 	
+		
 	
 	//updates the graphic periodically
 	function updateDraw(elapsed){
@@ -110,7 +129,7 @@ function ready (error, data, LoC) {
 		console.log("year: " + year	)
 				
 			//change fill color to scale with count
-			svgSelection.attr("fill", function(d){
+			countrySelection.transition().attr("fill", function(d){
 				//return countryColor(d.id) 
 				if (LoCData[parseInt(d.id)] != undefined){
 					if (LoCData[parseInt(d.id)][year] != undefined){
@@ -120,28 +139,11 @@ function ready (error, data, LoC) {
 				} else {return baseColor}
 			})
 			
-			//add the class 'selected'
-			.on('mouseover', function(d) {
-				d3.select(this)
-					.classed("selected", true)
-					.moveToFront()
-			})
-			//remove the class 'selected'
-			.on('mouseout', function(d) {
-				d3.select(this)
-					.classed("selected", false)
-			})
 	}
 	
-	//d3.interval(updateDraw(Math.floor(elapsed/1000)+1800),1000);
+
+	//run updateDraw after every timeStep milliseconds
 	var timeStep = 200
-	d3.interval(updateDraw,timeStep);
-	
-	console.log("data:")
-	console.log(data);
-		
-		
-	console.log(LoC)
-		
+	d3.interval(updateDraw,timeStep);		
 	}
 	
