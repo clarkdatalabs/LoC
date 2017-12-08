@@ -11,7 +11,7 @@ import re
 
 def cleanDate(d, dateKey = '260c'):
     '''Finds the input dateKey in the dictionary d. The value is expected to be a list of strings.
-    strips the first instance of exactly 4 consecutive digits 4 digits from the first string in this list, 
+    strips the first instance of exactly 4 consecutive digits from the first string in this list, 
     and replaces the list with these digits. If there never appear 4 consecutive digits then this element is 
     removed from the dictionary.'''
     try:
@@ -90,6 +90,7 @@ def XML2DB(XML, db):
                          d['050a'][0],
                          d['260a'][0].translate({ord(c): None for c in '[];:?,.'}),
                          d['260c'])
+                    print(t)
                     c.execute("INSERT INTO Record VALUES (?,?,?,?)", t)
                     for location in d['651a']:
                         t = (recordID, location)
@@ -111,8 +112,8 @@ def XML2DB(XML, db):
 
 
    
-source = "BooksAll.part01.xml"
+#source = "BooksAll.part01.xml"
 #source = 'LoC_snippet.xml'
-db = 'LoC.db'
+#db = 'LoC.db'
 #os.remove(db)
-XML2DB(source, db)
+#XML2DB(source, db)

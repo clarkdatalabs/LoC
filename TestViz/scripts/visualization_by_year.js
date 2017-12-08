@@ -28,6 +28,24 @@ d3.selection.prototype.moveToFront = function() {
 };
 
 
+//Prep the tooltip bits, initial display is hidden (copied from http://bl.ocks.org/mstanaland/6100713)
+var tooltip = svg.append("g")
+  .attr("class", "tooltip")
+  .style("display", "none");
+    
+tooltip.append("rect")
+  .attr("width", 30)
+  .attr("height", 20)
+  .attr("fill", "white")
+  .style("opacity", 0.5);
+
+tooltip.append("text")
+  .attr("x", 15)
+  .attr("dy", "1.2em")
+  .style("text-anchor", "middle")
+  .attr("font-size", "12px")
+  .attr("font-weight", "bold");
+
 /*Read in topojson*/
 d3.queue()
 	.defer(d3.json, "worldv1.json")
@@ -36,14 +54,6 @@ d3.queue()
 	
 /*Once map and LoC data are loaded, do the following*/
 function ready (error, data, LoC) {
-
-	
-	console.log("worldv1.json data:")
-	console.log(data)
-	
-	console.log("location_by_year.csv:")
-	console.log(LoC)
-	
 	//convert counts to integers
 	LoC.forEach(function(d){
 		d.count = +d.count;
@@ -55,8 +65,7 @@ function ready (error, data, LoC) {
 	var countryColor = d3.scalePow()
 		.exponent(.2)
 		.domain([0,maxCount])
-		.range([baseColor, "green"])
-		//.ticks(3)
+		.range(["#8798b2", "red"])
 		.clamp(true);
 	
 	//build LoCData data object	
@@ -69,17 +78,17 @@ function ready (error, data, LoC) {
 					}
 	)
 	
-
-	//LOG LoCData
+	//LOG DATA TO CONSOLE
+	console.log("worldv1.json data:")
+	console.log(data)
+	console.log("location_by_year.csv:")
+	console.log(LoC)
 	console.log("LoCData:")
 	console.log(LoCData);
 	
-	
-	//extract country features
+
+	//extract country features and draw initial country shapes
 	var countries = topojson.feature(data, data.objects.countries).features	
-	
-	
-	//Draw initial country shapes
 	countrySelection = svg.selectAll(".country")
 		.data(countries)
 		.enter().append("path")
@@ -92,15 +101,24 @@ function ready (error, data, LoC) {
 		.on('mouseover', function(d) {
 			d3.select(this)
 				.classed("highlighted", true)
-				.moveToFront()
+				.moveToFront();
 			d3.selectAll(".selected")	//bring selected country to the front
-				.moveToFront()
-				
+				.moveToFront();
+			tooltip
+				.style("display", null)
+				.moveToFront();
 		})
-		//remove the class 'highlighted'
+		//remove the class 'highlighted' on mouseout
 		.on('mouseout', function(d) {
 			d3.select(this)
-				.classed("highlighted", false)
+				.classed("highlighted", false);
+			tooltip.style("display", "none"); //hide tooltip on mousout
+		})
+		.on('mousemove', function(d) {	//move tooltip to follow mouse
+			var xPosition = d3.mouse(this)[0] - 15;
+			var yPosition = d3.mouse(this)[1] - 25;
+			tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+			tooltip.select("text").text(d.id);
 		})
 		
 		//add the class 'selected' on click
@@ -113,18 +131,25 @@ function ready (error, data, LoC) {
 						d3.selectAll(".selected").classed("selected", false);	//clear previous selection
 						clickSelection.moveToFront()	//bring selected country to front of draw order
 						return true}
-				})
+				});
+			tooltip.moveToFront();
 			//how do I access data attributes of clickSelection?
-			console.log("clickSelection: " + clickSelection)
+			console.log("clickSelection: " + clickSelection.id)
 			
 		})
 	
+		//function for updating the tooltip location
+	function updateTooltip() {
+		var xPosition = d3.mouse(this)[0] - 15;
+		var yPosition = d3.mouse(this)[1] - 25;
+		tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+	}
 		
 	
 	//updates the graphic periodically
 	function updateDraw(elapsed){
 	//draw countries
-		year = (Math.floor(elapsed/timeStep) % 110) +1900
+		year = (Math.floor(elapsed/timeStep) % 60) +1950
 		
 		console.log("year: " + year	)
 				
