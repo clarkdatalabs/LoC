@@ -10,7 +10,7 @@ from sqlalchemy import create_engine
 
 
 
-db="LoC.db"
+db="../LoC.db"
 conn = sqlite3.connect(db)
 c = conn.cursor()
 
@@ -29,7 +29,7 @@ SQL = '''SELECT
 #create table aggregating all years together
 subjectLocation = pd.read_sql_query(SQL, conn)
                                  
-subjectLocation.to_csv("ClusteringFiles\subject_location.csv", index = False)
+subjectLocation.to_csv("subject_location.csv", index = False)
 
 
 
