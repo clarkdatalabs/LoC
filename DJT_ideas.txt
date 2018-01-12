@@ -1,5 +1,0 @@
-R led to memory crashes
-- use python to read in xml serially (http://boscoh.com/programming/reading-xml-serially.html)
-- use SQLite to build database locally
-
-LC data available: http://www.loc.gov/cds/products/marcDist.php
