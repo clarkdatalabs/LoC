@@ -48,8 +48,8 @@ tooltip.append("text")
 
 /*Read in topojson*/
 d3.queue()
-	.defer(d3.json, "worldv1.json")
-	.defer(d3.csv, "location_by_year.csv")
+	.defer(d3.json, "Visualization/worldv1.json")
+	.defer(d3.csv, "Visualization/location_by_year.csv")
 	.await(ready);
 	
 /*Once map and LoC data are loaded, do the following*/
