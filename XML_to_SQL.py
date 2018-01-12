@@ -45,7 +45,7 @@ def XML2DB(XML, db):
         #get max recordID to increment from. If no rows exist, start at 1
         maxID = c.execute('''SELECT MAX(recordID) FROM Record''').fetchone()[0]
         if maxID: 
-            recordID = maxID
+            recordID = maxID +1
         else: 
             recordID = 1
         
@@ -69,51 +69,64 @@ def XML2DB(XML, db):
         writeCount = 0
         
         for event, elem in context:
-            if event =='start' and etree.QName(elem.tag).localname == 'record':     #etree.QName().localname strips the name space
-                #Build a dictionary to hold sought field data from each record
-                d = defaultdict(list)   #set so we can use append() to create new dictionary list values
-                for child in elem:
-                    if etree.QName(child.tag).localname == "datafield":
-                        tag = child.get('tag',0)                
-                        if tag in MARCfields.keys():
-                            for subfield in child:
-                                code = subfield.get("code",0) 
-                                if code in MARCfields[tag]:
-                                    d[(tag+code)].append(subfield.text)
-                
-                #clean year field to first 4 consecutive integers found                    
-                cleanDate(d, '260c')
+            try:
+                if event =='start' and etree.QName(elem.tag).localname == 'record':     #etree.QName().localname strips the name space
+                    #Build a dictionary to hold sought field data from each record
+                    d = defaultdict(list)   #set so we can use append() to create new dictionary list values
+                    for child in elem:
+                        if etree.QName(child.tag).localname == "datafield":
+                            tag = child.get('tag',0)                
+                            if tag in MARCfields.keys():
+                                for subfield in child:
+                                    code = subfield.get("code",0) 
+                                    if code in MARCfields[tag]:
+                                        d[(tag+code)].append(subfield.text)
+                    
+                    #clean year field to first 4 consecutive integers found                    
+                    cleanDate(d, '260c')
+                    
+                    #if all fields are populated, insert the row into 'Record' table
+                    if len(d) == fields:
+                        t = (recordID,
+                             d['050a'][0],
+                             d['260a'][0].translate({ord(c): None for c in '[];:?,.'}), #strip out punctuation from location strings
+                             d['260c'])
+                        #try:
+                        #    print(t)
+                        #except:
+                        #    print('PRINTING ERROR')
+                        c.execute("INSERT INTO Record VALUES (?,?,?,?)", t)
+                        for location in d['651a']:
+                            t = (recordID, location)
+                            c.execute("INSERT INTO Subject_Location VALUES (?,?)", t)
+                        del(t)
+                        recordID += 1
+                        writeCount += 1
+                        #print a progress counter every 2000 records
+                        if (writeCount%2000 == 0): print(writeCount, "records written out of", recordCount, "scanned in document", XML)    
+                    del(d)
+                    
+            #catch any oddities in XML parsing with an exception        
+            except Exception as ex:
+                print(ex)
 
-                if len(d) == fields:
-                    #insert row into 'Record' table
-                    t = (recordID,
-                         d['050a'][0],
-                         d['260a'][0].translate({ord(c): None for c in '[];:?,.'}),
-                         d['260c'])
-                    print(t)
-                    c.execute("INSERT INTO Record VALUES (?,?,?,?)", t)
-                    for location in d['651a']:
-                        t = (recordID, location)
-                        c.execute("INSERT INTO Subject_Location VALUES (?,?)", t)
-                    del(t)
-                    recordID += 1
-                    writeCount += 1
-                del(d)
             elem.clear()
             root.clear()
-            recordCount += 1        
+            recordCount += 1
+                    
         
         conn.commit()
         conn.close()
+                
+        print(writeCount, "records written out of", recordCount, "scanned in document", XML ,"(", round(((writeCount/recordCount)*100),2), "%)")
+        return {"write": writeCount, "scan": recordCount}
         
-        print(writeCount, "records written out of", recordCount, "scanned in document", XML ,"(", round(((recordID/recordCount)*100),2), "%)")
 #    except:
 #        print("an error occurred")
 
 
    
 #source = "BooksAll.part01.xml"
-#source = 'LoC_snippet.xml'
-#db = 'LoC.db'
+#db = 'test2.db'
 #os.remove(db)
 #XML2DB(source, db)

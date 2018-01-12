@@ -11,11 +11,19 @@ from XML_to_SQL import XML2DB
 
 #tmpfile = tempfile.TemporaryFile()
 
-for part in range (2, 3):
+written = 0
+scanned = 0
+
+for part in range (1, 42):
     filePath = 'BooksXML/BooksAll.2014.part' + str(part).zfill(2) + '.xml.gz'
     with open('tmpfile', "wb") as tmp:
         shutil.copyfileobj(gzip.open(filePath), tmp)
-        XML2DB(tmp, 'test1.db')
+    X = XML2DB('tmpfile', 'LoC.db')
+    written += X.get("write")
+    scanned += X.get("scan")
+    print("Part", part, "scan complete.")
+    print("Cumulative", written, "records written out of", scanned, "scanned")
+    
         
 
     #print(tmp)

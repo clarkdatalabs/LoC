@@ -1,0 +1,989 @@
+2000 records written out of 1156681 scanned in document tmpfile
+4000 records written out of 2435141 scanned in document tmpfile
+6000 records written out of 3714137 scanned in document tmpfile
+8000 records written out of 5019979 scanned in document tmpfile
+10000 records written out of 6408341 scanned in document tmpfile
+12000 records written out of 7547429 scanned in document tmpfile
+14000 records written out of 8463395 scanned in document tmpfile
+16000 records written out of 9492995 scanned in document tmpfile
+18000 records written out of 10269219 scanned in document tmpfile
+20000 records written out of 11271069 scanned in document tmpfile
+22000 records written out of 12440285 scanned in document tmpfile
+24000 records written out of 13340733 scanned in document tmpfile
+26000 records written out of 14134737 scanned in document tmpfile
+28000 records written out of 14894133 scanned in document tmpfile
+30000 records written out of 15942867 scanned in document tmpfile
+32000 records written out of 16945591 scanned in document tmpfile
+34000 records written out of 17894421 scanned in document tmpfile
+36000 records written out of 18760243 scanned in document tmpfile
+38000 records written out of 19684833 scanned in document tmpfile
+40000 records written out of 20732991 scanned in document tmpfile
+42000 records written out of 22359333 scanned in document tmpfile
+44000 records written out of 23487175 scanned in document tmpfile
+46000 records written out of 24244331 scanned in document tmpfile
+48000 records written out of 24715675 scanned in document tmpfile
+50000 records written out of 25148063 scanned in document tmpfile
+52000 records written out of 25573897 scanned in document tmpfile
+54000 records written out of 26128733 scanned in document tmpfile
+54424 records written out of 26240400 scanned in document tmpfile ( 0.21 %)
+Part 1 scan complete.
+Cumulative 54424 records written out of 26240400 scanned
+2000 records written out of 628527 scanned in document tmpfile
+4000 records written out of 1154929 scanned in document tmpfile
+6000 records written out of 1652579 scanned in document tmpfile
+8000 records written out of 2148863 scanned in document tmpfile
+10000 records written out of 2534983 scanned in document tmpfile
+12000 records written out of 3428601 scanned in document tmpfile
+14000 records written out of 4421283 scanned in document tmpfile
+16000 records written out of 5538489 scanned in document tmpfile
+18000 records written out of 6366783 scanned in document tmpfile
+20000 records written out of 7264227 scanned in document tmpfile
+22000 records written out of 8048763 scanned in document tmpfile
+24000 records written out of 9030425 scanned in document tmpfile
+26000 records written out of 10025567 scanned in document tmpfile
+28000 records written out of 11084121 scanned in document tmpfile
+30000 records written out of 12110873 scanned in document tmpfile
+32000 records written out of 13069615 scanned in document tmpfile
+34000 records written out of 14064291 scanned in document tmpfile
+36000 records written out of 15044011 scanned in document tmpfile
+38000 records written out of 15953737 scanned in document tmpfile
+40000 records written out of 16919967 scanned in document tmpfile
+42000 records written out of 17851447 scanned in document tmpfile
+44000 records written out of 18843587 scanned in document tmpfile
+46000 records written out of 19947341 scanned in document tmpfile
+48000 records written out of 20994029 scanned in document tmpfile
+48682 records written out of 21389594 scanned in document tmpfile ( 0.48 %)
+Part 2 scan complete.
+Cumulative 103106 records written out of 47629994 scanned
+2000 records written out of 1082535 scanned in document tmpfile
+4000 records written out of 2097379 scanned in document tmpfile
+6000 records written out of 3152251 scanned in document tmpfile
+8000 records written out of 4264081 scanned in document tmpfile
+10000 records written out of 5345725 scanned in document tmpfile
+12000 records written out of 6414119 scanned in document tmpfile
+14000 records written out of 7508769 scanned in document tmpfile
+16000 records written out of 8607127 scanned in document tmpfile
+18000 records written out of 9697519 scanned in document tmpfile
+20000 records written out of 10741029 scanned in document tmpfile
+22000 records written out of 11883293 scanned in document tmpfile
+24000 records written out of 12927643 scanned in document tmpfile
+26000 records written out of 13965979 scanned in document tmpfile
+28000 records written out of 15010067 scanned in document tmpfile
+30000 records written out of 16053757 scanned in document tmpfile
+32000 records written out of 17164159 scanned in document tmpfile
+34000 records written out of 18148023 scanned in document tmpfile
+36000 records written out of 19215753 scanned in document tmpfile
+38000 records written out of 20235343 scanned in document tmpfile
+40000 records written out of 21301929 scanned in document tmpfile
+40489 records written out of 21576118 scanned in document tmpfile ( 0.67 %)
+Part 3 scan complete.
+Cumulative 143595 records written out of 69206112 scanned
+2000 records written out of 961015 scanned in document tmpfile
+4000 records written out of 2002981 scanned in document tmpfile
+6000 records written out of 2997133 scanned in document tmpfile
+8000 records written out of 3904649 scanned in document tmpfile
+10000 records written out of 4871303 scanned in document tmpfile
+12000 records written out of 5920113 scanned in document tmpfile
+14000 records written out of 6872371 scanned in document tmpfile
+16000 records written out of 7837315 scanned in document tmpfile
+18000 records written out of 8904799 scanned in document tmpfile
+20000 records written out of 10025805 scanned in document tmpfile
+22000 records written out of 11051303 scanned in document tmpfile
+24000 records written out of 12022041 scanned in document tmpfile
+26000 records written out of 13192377 scanned in document tmpfile
+28000 records written out of 14086511 scanned in document tmpfile
+30000 records written out of 15293193 scanned in document tmpfile
+32000 records written out of 16315519 scanned in document tmpfile
+34000 records written out of 17314325 scanned in document tmpfile
+36000 records written out of 18519227 scanned in document tmpfile
+38000 records written out of 19615693 scanned in document tmpfile
+40000 records written out of 20765851 scanned in document tmpfile
+40381 records written out of 20896984 scanned in document tmpfile ( 0.88 %)
+Part 4 scan complete.
+Cumulative 183976 records written out of 90103096 scanned
+2000 records written out of 1130455 scanned in document tmpfile
+4000 records written out of 2039789 scanned in document tmpfile
+6000 records written out of 3228767 scanned in document tmpfile
+8000 records written out of 4234141 scanned in document tmpfile
+10000 records written out of 5394877 scanned in document tmpfile
+12000 records written out of 6490671 scanned in document tmpfile
+14000 records written out of 7542475 scanned in document tmpfile
+16000 records written out of 8641395 scanned in document tmpfile
+18000 records written out of 9686267 scanned in document tmpfile
+20000 records written out of 10850245 scanned in document tmpfile
+22000 records written out of 11780079 scanned in document tmpfile
+24000 records written out of 12969341 scanned in document tmpfile
+26000 records written out of 14013785 scanned in document tmpfile
+28000 records written out of 15088553 scanned in document tmpfile
+30000 records written out of 16158637 scanned in document tmpfile
+32000 records written out of 17164465 scanned in document tmpfile
+34000 records written out of 18469777 scanned in document tmpfile
+36000 records written out of 19304063 scanned in document tmpfile
+38000 records written out of 20464735 scanned in document tmpfile
+38050 records written out of 20494332 scanned in document tmpfile ( 1.08 %)
+Part 5 scan complete.
+Cumulative 222026 records written out of 110597428 scanned
+2000 records written out of 1038147 scanned in document tmpfile
+4000 records written out of 2052041 scanned in document tmpfile
+6000 records written out of 3377469 scanned in document tmpfile
+8000 records written out of 4470717 scanned in document tmpfile
+10000 records written out of 5438197 scanned in document tmpfile
+12000 records written out of 6641677 scanned in document tmpfile
+14000 records written out of 7637211 scanned in document tmpfile
+16000 records written out of 8852115 scanned in document tmpfile
+18000 records written out of 9765023 scanned in document tmpfile
+20000 records written out of 10882797 scanned in document tmpfile
+22000 records written out of 11919023 scanned in document tmpfile
+24000 records written out of 13156155 scanned in document tmpfile
+26000 records written out of 14265217 scanned in document tmpfile
+28000 records written out of 15369005 scanned in document tmpfile
+30000 records written out of 16398157 scanned in document tmpfile
+32000 records written out of 17372559 scanned in document tmpfile
+34000 records written out of 18332079 scanned in document tmpfile
+36000 records written out of 19609889 scanned in document tmpfile
+38000 records written out of 20655511 scanned in document tmpfile
+38141 records written out of 20749412 scanned in document tmpfile ( 1.25 %)
+Part 6 scan complete.
+Cumulative 260167 records written out of 131346840 scanned
+2000 records written out of 1112989 scanned in document tmpfile
+4000 records written out of 2145933 scanned in document tmpfile
+6000 records written out of 3095481 scanned in document tmpfile
+8000 records written out of 4127011 scanned in document tmpfile
+10000 records written out of 5208679 scanned in document tmpfile
+12000 records written out of 6374673 scanned in document tmpfile
+14000 records written out of 7638101 scanned in document tmpfile
+16000 records written out of 8636023 scanned in document tmpfile
+18000 records written out of 9891299 scanned in document tmpfile
+20000 records written out of 10969981 scanned in document tmpfile
+22000 records written out of 12084875 scanned in document tmpfile
+24000 records written out of 13154119 scanned in document tmpfile
+26000 records written out of 14190635 scanned in document tmpfile
+28000 records written out of 15201861 scanned in document tmpfile
+30000 records written out of 16150275 scanned in document tmpfile
+32000 records written out of 17288221 scanned in document tmpfile
+34000 records written out of 18439845 scanned in document tmpfile
+36000 records written out of 19834913 scanned in document tmpfile
+38000 records written out of 21135837 scanned in document tmpfile
+38013 records written out of 21144768 scanned in document tmpfile ( 1.41 %)
+Part 7 scan complete.
+Cumulative 298180 records written out of 152491608 scanned
+2000 records written out of 1200441 scanned in document tmpfile
+4000 records written out of 2441427 scanned in document tmpfile
+6000 records written out of 3489265 scanned in document tmpfile
+8000 records written out of 4447421 scanned in document tmpfile
+10000 records written out of 5321647 scanned in document tmpfile
+12000 records written out of 6212757 scanned in document tmpfile
+14000 records written out of 7259425 scanned in document tmpfile
+16000 records written out of 8281611 scanned in document tmpfile
+18000 records written out of 9553765 scanned in document tmpfile
+20000 records written out of 10953125 scanned in document tmpfile
+22000 records written out of 12207095 scanned in document tmpfile
+24000 records written out of 13469505 scanned in document tmpfile
+26000 records written out of 14540685 scanned in document tmpfile
+28000 records written out of 15552285 scanned in document tmpfile
+30000 records written out of 16544053 scanned in document tmpfile
+32000 records written out of 17592269 scanned in document tmpfile
+34000 records written out of 18480529 scanned in document tmpfile
+36000 records written out of 19449047 scanned in document tmpfile
+38000 records written out of 20733481 scanned in document tmpfile
+39085 records written out of 21355810 scanned in document tmpfile ( 1.58 %)
+Part 8 scan complete.
+Cumulative 337265 records written out of 173847418 scanned
+2000 records written out of 1421421 scanned in document tmpfile
+4000 records written out of 2504653 scanned in document tmpfile
+6000 records written out of 3787809 scanned in document tmpfile
+8000 records written out of 4939715 scanned in document tmpfile
+10000 records written out of 5898781 scanned in document tmpfile
+12000 records written out of 6906697 scanned in document tmpfile
+14000 records written out of 7887203 scanned in document tmpfile
+16000 records written out of 8928445 scanned in document tmpfile
+18000 records written out of 9894851 scanned in document tmpfile
+20000 records written out of 10969789 scanned in document tmpfile
+22000 records written out of 11971361 scanned in document tmpfile
+24000 records written out of 12882489 scanned in document tmpfile
+26000 records written out of 13880731 scanned in document tmpfile
+28000 records written out of 15025015 scanned in document tmpfile
+30000 records written out of 16312569 scanned in document tmpfile
+32000 records written out of 17711163 scanned in document tmpfile
+34000 records written out of 18799927 scanned in document tmpfile
+36000 records written out of 20053135 scanned in document tmpfile
+37843 records written out of 21264156 scanned in document tmpfile ( 1.76 %)
+Part 9 scan complete.
+Cumulative 375108 records written out of 195111574 scanned
+2000 records written out of 968101 scanned in document tmpfile
+4000 records written out of 1912551 scanned in document tmpfile
+6000 records written out of 2759603 scanned in document tmpfile
+8000 records written out of 3725565 scanned in document tmpfile
+10000 records written out of 4761089 scanned in document tmpfile
+12000 records written out of 5738139 scanned in document tmpfile
+14000 records written out of 6783177 scanned in document tmpfile
+16000 records written out of 7725679 scanned in document tmpfile
+18000 records written out of 8666543 scanned in document tmpfile
+20000 records written out of 10157249 scanned in document tmpfile
+22000 records written out of 11334965 scanned in document tmpfile
+24000 records written out of 12860821 scanned in document tmpfile
+26000 records written out of 14110947 scanned in document tmpfile
+28000 records written out of 15104745 scanned in document tmpfile
+30000 records written out of 15995035 scanned in document tmpfile
+32000 records written out of 17013203 scanned in document tmpfile
+34000 records written out of 17991361 scanned in document tmpfile
+36000 records written out of 18938851 scanned in document tmpfile
+38000 records written out of 19955039 scanned in document tmpfile
+40000 records written out of 20894173 scanned in document tmpfile
+41276 records written out of 21592434 scanned in document tmpfile ( 1.93 %)
+Part 10 scan complete.
+Cumulative 416384 records written out of 216704008 scanned
+2000 records written out of 1090429 scanned in document tmpfile
+4000 records written out of 2158071 scanned in document tmpfile
+6000 records written out of 3630937 scanned in document tmpfile
+8000 records written out of 4799947 scanned in document tmpfile
+10000 records written out of 6190397 scanned in document tmpfile
+12000 records written out of 7527359 scanned in document tmpfile
+14000 records written out of 8558587 scanned in document tmpfile
+16000 records written out of 9411451 scanned in document tmpfile
+18000 records written out of 10393919 scanned in document tmpfile
+20000 records written out of 11278433 scanned in document tmpfile
+22000 records written out of 12230395 scanned in document tmpfile
+24000 records written out of 13190257 scanned in document tmpfile
+26000 records written out of 14068549 scanned in document tmpfile
+28000 records written out of 15106211 scanned in document tmpfile
+30000 records written out of 16135415 scanned in document tmpfile
+32000 records written out of 17074393 scanned in document tmpfile
+34000 records written out of 18175843 scanned in document tmpfile
+36000 records written out of 19517491 scanned in document tmpfile
+38000 records written out of 20685025 scanned in document tmpfile
+39376 records written out of 21555984 scanned in document tmpfile ( 2.11 %)
+Part 11 scan complete.
+Cumulative 455760 records written out of 238259992 scanned
+2000 records written out of 1457979 scanned in document tmpfile
+4000 records written out of 2746629 scanned in document tmpfile
+6000 records written out of 3679757 scanned in document tmpfile
+8000 records written out of 4497279 scanned in document tmpfile
+10000 records written out of 5413281 scanned in document tmpfile
+12000 records written out of 6350469 scanned in document tmpfile
+14000 records written out of 7257665 scanned in document tmpfile
+16000 records written out of 8144021 scanned in document tmpfile
+18000 records written out of 8992585 scanned in document tmpfile
+20000 records written out of 9909083 scanned in document tmpfile
+22000 records written out of 10822215 scanned in document tmpfile
+24000 records written out of 11843801 scanned in document tmpfile
+26000 records written out of 12820045 scanned in document tmpfile
+28000 records written out of 14271581 scanned in document tmpfile
+30000 records written out of 15538299 scanned in document tmpfile
+32000 records written out of 16882607 scanned in document tmpfile
+34000 records written out of 18378169 scanned in document tmpfile
+36000 records written out of 19475145 scanned in document tmpfile
+38000 records written out of 20372199 scanned in document tmpfile
+40000 records written out of 21319679 scanned in document tmpfile
+40434 records written out of 21547214 scanned in document tmpfile ( 2.3 %)
+Part 12 scan complete.
+Cumulative 496194 records written out of 259807206 scanned
+2000 records written out of 1064025 scanned in document tmpfile
+4000 records written out of 1829703 scanned in document tmpfile
+6000 records written out of 2639475 scanned in document tmpfile
+8000 records written out of 3728149 scanned in document tmpfile
+10000 records written out of 4902159 scanned in document tmpfile
+12000 records written out of 5911099 scanned in document tmpfile
+14000 records written out of 6874603 scanned in document tmpfile
+16000 records written out of 8233505 scanned in document tmpfile
+18000 records written out of 9599659 scanned in document tmpfile
+20000 records written out of 11165017 scanned in document tmpfile
+22000 records written out of 12423821 scanned in document tmpfile
+24000 records written out of 13439681 scanned in document tmpfile
+26000 records written out of 14525699 scanned in document tmpfile
+28000 records written out of 15558143 scanned in document tmpfile
+30000 records written out of 16577733 scanned in document tmpfile
+32000 records written out of 17633441 scanned in document tmpfile
+34000 records written out of 18684905 scanned in document tmpfile
+36000 records written out of 19730843 scanned in document tmpfile
+38000 records written out of 20725431 scanned in document tmpfile
+40000 records written out of 21670701 scanned in document tmpfile
+41236 records written out of 22332586 scanned in document tmpfile ( 2.41 %)
+Part 13 scan complete.
+Cumulative 537430 records written out of 282139792 scanned
+2000 records written out of 1400357 scanned in document tmpfile
+4000 records written out of 2508827 scanned in document tmpfile
+6000 records written out of 4155561 scanned in document tmpfile
+8000 records written out of 5521595 scanned in document tmpfile
+10000 records written out of 6583187 scanned in document tmpfile
+12000 records written out of 7864983 scanned in document tmpfile
+14000 records written out of 8921239 scanned in document tmpfile
+16000 records written out of 10019823 scanned in document tmpfile
+18000 records written out of 11160877 scanned in document tmpfile
+20000 records written out of 12356677 scanned in document tmpfile
+22000 records written out of 13500867 scanned in document tmpfile
+24000 records written out of 14680837 scanned in document tmpfile
+26000 records written out of 15845425 scanned in document tmpfile
+28000 records written out of 17191461 scanned in document tmpfile
+30000 records written out of 18502585 scanned in document tmpfile
+32000 records written out of 20206673 scanned in document tmpfile
+34000 records written out of 21516587 scanned in document tmpfile
+34853 records written out of 21995498 scanned in document tmpfile ( 2.6 %)
+Part 14 scan complete.
+Cumulative 572283 records written out of 304135290 scanned
+2000 records written out of 1075583 scanned in document tmpfile
+4000 records written out of 2127893 scanned in document tmpfile
+6000 records written out of 3183285 scanned in document tmpfile
+8000 records written out of 4204847 scanned in document tmpfile
+10000 records written out of 5167173 scanned in document tmpfile
+12000 records written out of 6118933 scanned in document tmpfile
+14000 records written out of 7140551 scanned in document tmpfile
+16000 records written out of 8163935 scanned in document tmpfile
+18000 records written out of 9256205 scanned in document tmpfile
+20000 records written out of 10412939 scanned in document tmpfile
+22000 records written out of 11828113 scanned in document tmpfile
+24000 records written out of 13152835 scanned in document tmpfile
+26000 records written out of 14787979 scanned in document tmpfile
+28000 records written out of 16007683 scanned in document tmpfile
+30000 records written out of 16922481 scanned in document tmpfile
+32000 records written out of 17895187 scanned in document tmpfile
+34000 records written out of 18940003 scanned in document tmpfile
+36000 records written out of 19954037 scanned in document tmpfile
+38000 records written out of 20862385 scanned in document tmpfile
+40000 records written out of 21927073 scanned in document tmpfile
+40525 records written out of 22209610 scanned in document tmpfile ( 2.76 %)
+Part 15 scan complete.
+Cumulative 612808 records written out of 326344900 scanned
+2000 records written out of 1037501 scanned in document tmpfile
+4000 records written out of 2090525 scanned in document tmpfile
+6000 records written out of 3132473 scanned in document tmpfile
+8000 records written out of 4186011 scanned in document tmpfile
+10000 records written out of 5198191 scanned in document tmpfile
+12000 records written out of 6435865 scanned in document tmpfile
+14000 records written out of 7546919 scanned in document tmpfile
+16000 records written out of 8864291 scanned in document tmpfile
+18000 records written out of 10420885 scanned in document tmpfile
+20000 records written out of 11706615 scanned in document tmpfile
+22000 records written out of 12736695 scanned in document tmpfile
+24000 records written out of 13680499 scanned in document tmpfile
+26000 records written out of 14590759 scanned in document tmpfile
+28000 records written out of 15546641 scanned in document tmpfile
+30000 records written out of 16563461 scanned in document tmpfile
+32000 records written out of 17567309 scanned in document tmpfile
+34000 records written out of 18527607 scanned in document tmpfile
+36000 records written out of 19465629 scanned in document tmpfile
+38000 records written out of 20470475 scanned in document tmpfile
+40000 records written out of 21492095 scanned in document tmpfile
+42000 records written out of 22494797 scanned in document tmpfile
+44000 records written out of 23549717 scanned in document tmpfile
+45053 records written out of 24177010 scanned in document tmpfile ( 2.72 %)
+Part 16 scan complete.
+Cumulative 657861 records written out of 350521910 scanned
+2000 records written out of 2560685 scanned in document tmpfile
+4000 records written out of 4080515 scanned in document tmpfile
+6000 records written out of 5501747 scanned in document tmpfile
+8000 records written out of 6938613 scanned in document tmpfile
+10000 records written out of 8088323 scanned in document tmpfile
+12000 records written out of 9128075 scanned in document tmpfile
+14000 records written out of 10078753 scanned in document tmpfile
+16000 records written out of 11040039 scanned in document tmpfile
+18000 records written out of 11998219 scanned in document tmpfile
+20000 records written out of 12969921 scanned in document tmpfile
+22000 records written out of 13846435 scanned in document tmpfile
+24000 records written out of 14755257 scanned in document tmpfile
+26000 records written out of 15683915 scanned in document tmpfile
+28000 records written out of 16569971 scanned in document tmpfile
+30000 records written out of 17477779 scanned in document tmpfile
+32000 records written out of 18349597 scanned in document tmpfile
+34000 records written out of 19259385 scanned in document tmpfile
+36000 records written out of 20972547 scanned in document tmpfile
+38000 records written out of 21894245 scanned in document tmpfile
+40000 records written out of 23226967 scanned in document tmpfile
+40023 records written out of 23249552 scanned in document tmpfile ( 3.0 %)
+Part 17 scan complete.
+Cumulative 697884 records written out of 373771462 scanned
+2000 records written out of 1437317 scanned in document tmpfile
+4000 records written out of 2723853 scanned in document tmpfile
+6000 records written out of 3768005 scanned in document tmpfile
+8000 records written out of 4761193 scanned in document tmpfile
+10000 records written out of 5649629 scanned in document tmpfile
+12000 records written out of 6603609 scanned in document tmpfile
+14000 records written out of 7638411 scanned in document tmpfile
+16000 records written out of 8657519 scanned in document tmpfile
+18000 records written out of 9727527 scanned in document tmpfile
+20000 records written out of 10698793 scanned in document tmpfile
+22000 records written out of 11782713 scanned in document tmpfile
+24000 records written out of 12493943 scanned in document tmpfile
+26000 records written out of 13688419 scanned in document tmpfile
+28000 records written out of 15595387 scanned in document tmpfile
+30000 records written out of 16736081 scanned in document tmpfile
+32000 records written out of 18153489 scanned in document tmpfile
+34000 records written out of 19522511 scanned in document tmpfile
+36000 records written out of 20732109 scanned in document tmpfile
+38000 records written out of 21753717 scanned in document tmpfile
+40000 records written out of 22654191 scanned in document tmpfile
+42000 records written out of 23643437 scanned in document tmpfile
+44000 records written out of 24596569 scanned in document tmpfile
+44409 records written out of 24785684 scanned in document tmpfile ( 2.99 %)
+Part 18 scan complete.
+Cumulative 742293 records written out of 398557146 scanned
+2000 records written out of 876103 scanned in document tmpfile
+4000 records written out of 1783179 scanned in document tmpfile
+6000 records written out of 2678017 scanned in document tmpfile
+8000 records written out of 3645231 scanned in document tmpfile
+10000 records written out of 4636727 scanned in document tmpfile
+12000 records written out of 5652813 scanned in document tmpfile
+14000 records written out of 7395907 scanned in document tmpfile
+16000 records written out of 8721931 scanned in document tmpfile
+18000 records written out of 10037817 scanned in document tmpfile
+20000 records written out of 11564199 scanned in document tmpfile
+22000 records written out of 12760737 scanned in document tmpfile
+24000 records written out of 13988411 scanned in document tmpfile
+26000 records written out of 14898341 scanned in document tmpfile
+28000 records written out of 15780353 scanned in document tmpfile
+30000 records written out of 16673281 scanned in document tmpfile
+32000 records written out of 17571531 scanned in document tmpfile
+34000 records written out of 18497965 scanned in document tmpfile
+36000 records written out of 19373831 scanned in document tmpfile
+38000 records written out of 20259477 scanned in document tmpfile
+40000 records written out of 21264071 scanned in document tmpfile
+42000 records written out of 22207285 scanned in document tmpfile
+44000 records written out of 23144407 scanned in document tmpfile
+46000 records written out of 24138651 scanned in document tmpfile
+46571 records written out of 24889712 scanned in document tmpfile ( 3.17 %)
+Part 19 scan complete.
+Cumulative 788864 records written out of 423446858 scanned
+2000 records written out of 2131029 scanned in document tmpfile
+4000 records written out of 3397251 scanned in document tmpfile
+6000 records written out of 4943109 scanned in document tmpfile
+8000 records written out of 6292959 scanned in document tmpfile
+10000 records written out of 7606571 scanned in document tmpfile
+12000 records written out of 8710631 scanned in document tmpfile
+14000 records written out of 9686251 scanned in document tmpfile
+16000 records written out of 10631819 scanned in document tmpfile
+18000 records written out of 11600209 scanned in document tmpfile
+20000 records written out of 12606129 scanned in document tmpfile
+22000 records written out of 13554093 scanned in document tmpfile
+24000 records written out of 14542661 scanned in document tmpfile
+26000 records written out of 15532643 scanned in document tmpfile
+28000 records written out of 16475749 scanned in document tmpfile
+30000 records written out of 17412307 scanned in document tmpfile
+32000 records written out of 18371935 scanned in document tmpfile
+34000 records written out of 19593449 scanned in document tmpfile
+36000 records written out of 21838145 scanned in document tmpfile
+38000 records written out of 23105879 scanned in document tmpfile
+40000 records written out of 24261777 scanned in document tmpfile
+40121 records written out of 24342256 scanned in document tmpfile ( 3.41 %)
+Part 20 scan complete.
+Cumulative 828985 records written out of 447789114 scanned
+2000 records written out of 1361749 scanned in document tmpfile
+4000 records written out of 2782935 scanned in document tmpfile
+6000 records written out of 4073205 scanned in document tmpfile
+8000 records written out of 5127911 scanned in document tmpfile
+10000 records written out of 6141983 scanned in document tmpfile
+12000 records written out of 7067223 scanned in document tmpfile
+14000 records written out of 7934975 scanned in document tmpfile
+16000 records written out of 8904921 scanned in document tmpfile
+18000 records written out of 9829681 scanned in document tmpfile
+20000 records written out of 10713969 scanned in document tmpfile
+22000 records written out of 11724265 scanned in document tmpfile
+24000 records written out of 12545335 scanned in document tmpfile
+26000 records written out of 13494139 scanned in document tmpfile
+28000 records written out of 14398245 scanned in document tmpfile
+30000 records written out of 15429293 scanned in document tmpfile
+32000 records written out of 17639633 scanned in document tmpfile
+34000 records written out of 18834679 scanned in document tmpfile
+36000 records written out of 20033139 scanned in document tmpfile
+38000 records written out of 21429073 scanned in document tmpfile
+40000 records written out of 22763249 scanned in document tmpfile
+42000 records written out of 24162191 scanned in document tmpfile
+43502 records written out of 25149508 scanned in document tmpfile ( 3.47 %)
+Part 21 scan complete.
+Cumulative 872487 records written out of 472938622 scanned
+2000 records written out of 1005225 scanned in document tmpfile
+4000 records written out of 2041433 scanned in document tmpfile
+6000 records written out of 3079245 scanned in document tmpfile
+8000 records written out of 4003689 scanned in document tmpfile
+10000 records written out of 5012657 scanned in document tmpfile
+12000 records written out of 6015899 scanned in document tmpfile
+14000 records written out of 7031343 scanned in document tmpfile
+16000 records written out of 7986263 scanned in document tmpfile
+18000 records written out of 8963013 scanned in document tmpfile
+20000 records written out of 9863773 scanned in document tmpfile
+22000 records written out of 10828737 scanned in document tmpfile
+24000 records written out of 11818091 scanned in document tmpfile
+26000 records written out of 13351637 scanned in document tmpfile
+28000 records written out of 14737935 scanned in document tmpfile
+30000 records written out of 15795461 scanned in document tmpfile
+32000 records written out of 17159065 scanned in document tmpfile
+34000 records written out of 18487101 scanned in document tmpfile
+36000 records written out of 19777807 scanned in document tmpfile
+38000 records written out of 21048917 scanned in document tmpfile
+40000 records written out of 22237471 scanned in document tmpfile
+42000 records written out of 23305995 scanned in document tmpfile
+44000 records written out of 24296705 scanned in document tmpfile
+45069 records written out of 24805730 scanned in document tmpfile ( 3.7 %)
+Part 22 scan complete.
+Cumulative 917556 records written out of 497744352 scanned
+2000 records written out of 899515 scanned in document tmpfile
+4000 records written out of 1873087 scanned in document tmpfile
+6000 records written out of 2780757 scanned in document tmpfile
+8000 records written out of 3767357 scanned in document tmpfile
+10000 records written out of 4768479 scanned in document tmpfile
+12000 records written out of 5660905 scanned in document tmpfile
+14000 records written out of 6633265 scanned in document tmpfile
+16000 records written out of 7674941 scanned in document tmpfile
+18000 records written out of 8695523 scanned in document tmpfile
+20000 records written out of 10227059 scanned in document tmpfile
+22000 records written out of 11371421 scanned in document tmpfile
+24000 records written out of 12489635 scanned in document tmpfile
+26000 records written out of 13759995 scanned in document tmpfile
+28000 records written out of 15043941 scanned in document tmpfile
+30000 records written out of 16305329 scanned in document tmpfile
+32000 records written out of 17713815 scanned in document tmpfile
+34000 records written out of 18746727 scanned in document tmpfile
+36000 records written out of 19761425 scanned in document tmpfile
+38000 records written out of 20789569 scanned in document tmpfile
+40000 records written out of 21685737 scanned in document tmpfile
+42000 records written out of 22623725 scanned in document tmpfile
+44000 records written out of 23586677 scanned in document tmpfile
+46000 records written out of 24580181 scanned in document tmpfile
+47602 records written out of 25240300 scanned in document tmpfile ( 3.82 %)
+Part 23 scan complete.
+Cumulative 965158 records written out of 522984652 scanned
+2000 records written out of 858403 scanned in document tmpfile
+4000 records written out of 1711379 scanned in document tmpfile
+6000 records written out of 2659955 scanned in document tmpfile
+8000 records written out of 3582959 scanned in document tmpfile
+10000 records written out of 4789773 scanned in document tmpfile
+12000 records written out of 6409589 scanned in document tmpfile
+14000 records written out of 7973013 scanned in document tmpfile
+16000 records written out of 8955635 scanned in document tmpfile
+18000 records written out of 10129169 scanned in document tmpfile
+20000 records written out of 11401103 scanned in document tmpfile
+22000 records written out of 12661795 scanned in document tmpfile
+24000 records written out of 13925901 scanned in document tmpfile
+26000 records written out of 15288837 scanned in document tmpfile
+28000 records written out of 16149103 scanned in document tmpfile
+30000 records written out of 16986189 scanned in document tmpfile
+32000 records written out of 17784743 scanned in document tmpfile
+34000 records written out of 18591071 scanned in document tmpfile
+36000 records written out of 19416711 scanned in document tmpfile
+38000 records written out of 20261105 scanned in document tmpfile
+40000 records written out of 21161817 scanned in document tmpfile
+42000 records written out of 22088355 scanned in document tmpfile
+44000 records written out of 22944985 scanned in document tmpfile
+46000 records written out of 23776013 scanned in document tmpfile
+48000 records written out of 24646153 scanned in document tmpfile
+49551 records written out of 25250848 scanned in document tmpfile ( 4.02 %)
+Part 24 scan complete.
+Cumulative 1014709 records written out of 548235500 scanned
+2000 records written out of 829995 scanned in document tmpfile
+4000 records written out of 1932971 scanned in document tmpfile
+6000 records written out of 3147857 scanned in document tmpfile
+8000 records written out of 4714149 scanned in document tmpfile
+10000 records written out of 6403483 scanned in document tmpfile
+12000 records written out of 7456281 scanned in document tmpfile
+14000 records written out of 8690521 scanned in document tmpfile
+16000 records written out of 9961989 scanned in document tmpfile
+18000 records written out of 11320357 scanned in document tmpfile
+20000 records written out of 12564661 scanned in document tmpfile
+22000 records written out of 13860563 scanned in document tmpfile
+24000 records written out of 14704877 scanned in document tmpfile
+26000 records written out of 15582537 scanned in document tmpfile
+28000 records written out of 16492275 scanned in document tmpfile
+30000 records written out of 17335993 scanned in document tmpfile
+32000 records written out of 18182457 scanned in document tmpfile
+34000 records written out of 19048791 scanned in document tmpfile
+36000 records written out of 19939097 scanned in document tmpfile
+38000 records written out of 20850855 scanned in document tmpfile
+40000 records written out of 21762153 scanned in document tmpfile
+42000 records written out of 22685173 scanned in document tmpfile
+44000 records written out of 23626075 scanned in document tmpfile
+46000 records written out of 24612117 scanned in document tmpfile
+48000 records written out of 25560423 scanned in document tmpfile
+49067 records written out of 26508502 scanned in document tmpfile ( 4.01 %)
+Part 25 scan complete.
+Cumulative 1063776 records written out of 574744002 scanned
+2000 records written out of 1597685 scanned in document tmpfile
+4000 records written out of 2743131 scanned in document tmpfile
+6000 records written out of 3892773 scanned in document tmpfile
+8000 records written out of 5171229 scanned in document tmpfile
+10000 records written out of 6493549 scanned in document tmpfile
+12000 records written out of 7832633 scanned in document tmpfile
+14000 records written out of 9206559 scanned in document tmpfile
+16000 records written out of 10078305 scanned in document tmpfile
+18000 records written out of 10940319 scanned in document tmpfile
+20000 records written out of 11779457 scanned in document tmpfile
+22000 records written out of 12665111 scanned in document tmpfile
+24000 records written out of 13618161 scanned in document tmpfile
+26000 records written out of 14435773 scanned in document tmpfile
+28000 records written out of 15350587 scanned in document tmpfile
+30000 records written out of 16255961 scanned in document tmpfile
+32000 records written out of 17145647 scanned in document tmpfile
+34000 records written out of 18057893 scanned in document tmpfile
+36000 records written out of 18963151 scanned in document tmpfile
+38000 records written out of 19945665 scanned in document tmpfile
+40000 records written out of 20933205 scanned in document tmpfile
+42000 records written out of 22456073 scanned in document tmpfile
+44000 records written out of 23739433 scanned in document tmpfile
+46000 records written out of 24946947 scanned in document tmpfile
+47332 records written out of 25782220 scanned in document tmpfile ( 4.31 %)
+Part 26 scan complete.
+Cumulative 1111108 records written out of 600526222 scanned
+2000 records written out of 1245249 scanned in document tmpfile
+4000 records written out of 2590257 scanned in document tmpfile
+6000 records written out of 3907125 scanned in document tmpfile
+8000 records written out of 5177591 scanned in document tmpfile
+10000 records written out of 6262785 scanned in document tmpfile
+12000 records written out of 7122631 scanned in document tmpfile
+14000 records written out of 8043245 scanned in document tmpfile
+16000 records written out of 8913245 scanned in document tmpfile
+18000 records written out of 9784669 scanned in document tmpfile
+20000 records written out of 10689681 scanned in document tmpfile
+22000 records written out of 11572179 scanned in document tmpfile
+24000 records written out of 12476101 scanned in document tmpfile
+26000 records written out of 13356653 scanned in document tmpfile
+28000 records written out of 14239995 scanned in document tmpfile
+30000 records written out of 15140331 scanned in document tmpfile
+32000 records written out of 16110899 scanned in document tmpfile
+34000 records written out of 17091567 scanned in document tmpfile
+36000 records written out of 18031729 scanned in document tmpfile
+38000 records written out of 19630861 scanned in document tmpfile
+40000 records written out of 20880333 scanned in document tmpfile
+42000 records written out of 22452393 scanned in document tmpfile
+44000 records written out of 23323031 scanned in document tmpfile
+46000 records written out of 24564199 scanned in document tmpfile
+47972 records written out of 25958666 scanned in document tmpfile ( 4.47 %)
+Part 27 scan complete.
+Cumulative 1159080 records written out of 626484888 scanned
+2000 records written out of 1438221 scanned in document tmpfile
+4000 records written out of 2922495 scanned in document tmpfile
+6000 records written out of 4016055 scanned in document tmpfile
+8000 records written out of 5078191 scanned in document tmpfile
+10000 records written out of 6026637 scanned in document tmpfile
+12000 records written out of 6921301 scanned in document tmpfile
+14000 records written out of 7854931 scanned in document tmpfile
+16000 records written out of 8737597 scanned in document tmpfile
+18000 records written out of 9617609 scanned in document tmpfile
+20000 records written out of 10526479 scanned in document tmpfile
+22000 records written out of 11393339 scanned in document tmpfile
+24000 records written out of 12684243 scanned in document tmpfile
+26000 records written out of 13653717 scanned in document tmpfile
+28000 records written out of 14622301 scanned in document tmpfile
+30000 records written out of 15481941 scanned in document tmpfile
+32000 records written out of 16429537 scanned in document tmpfile
+34000 records written out of 17360415 scanned in document tmpfile
+36000 records written out of 18623561 scanned in document tmpfile
+38000 records written out of 20115915 scanned in document tmpfile
+40000 records written out of 21241187 scanned in document tmpfile
+42000 records written out of 22547177 scanned in document tmpfile
+44000 records written out of 23860931 scanned in document tmpfile
+46000 records written out of 25074583 scanned in document tmpfile
+47787 records written out of 26223344 scanned in document tmpfile ( 4.6 %)
+Part 28 scan complete.
+Cumulative 1206867 records written out of 652708232 scanned
+2000 records written out of 1522705 scanned in document tmpfile
+4000 records written out of 2580599 scanned in document tmpfile
+6000 records written out of 3753099 scanned in document tmpfile
+8000 records written out of 4617135 scanned in document tmpfile
+10000 records written out of 5449043 scanned in document tmpfile
+12000 records written out of 6535125 scanned in document tmpfile
+14000 records written out of 7533705 scanned in document tmpfile
+16000 records written out of 8397129 scanned in document tmpfile
+18000 records written out of 9285905 scanned in document tmpfile
+20000 records written out of 10247689 scanned in document tmpfile
+22000 records written out of 11260741 scanned in document tmpfile
+24000 records written out of 12088905 scanned in document tmpfile
+26000 records written out of 13031621 scanned in document tmpfile
+28000 records written out of 13870067 scanned in document tmpfile
+30000 records written out of 14829651 scanned in document tmpfile
+32000 records written out of 15840055 scanned in document tmpfile
+34000 records written out of 16969035 scanned in document tmpfile
+36000 records written out of 18151407 scanned in document tmpfile
+38000 records written out of 19322973 scanned in document tmpfile
+40000 records written out of 20510789 scanned in document tmpfile
+'NoneType' object has no attribute 'translate'
+42000 records written out of 21724059 scanned in document tmpfile
+44000 records written out of 23033015 scanned in document tmpfile
+46000 records written out of 24371857 scanned in document tmpfile
+48000 records written out of 25920499 scanned in document tmpfile
+49975 records written out of 26975448 scanned in document tmpfile ( 4.66 %)
+Part 29 scan complete.
+Cumulative 1256842 records written out of 679683680 scanned
+2000 records written out of 858533 scanned in document tmpfile
+4000 records written out of 2032931 scanned in document tmpfile
+6000 records written out of 3112103 scanned in document tmpfile
+8000 records written out of 3975403 scanned in document tmpfile
+10000 records written out of 4965621 scanned in document tmpfile
+12000 records written out of 5885835 scanned in document tmpfile
+14000 records written out of 6870053 scanned in document tmpfile
+16000 records written out of 7745787 scanned in document tmpfile
+18000 records written out of 8738731 scanned in document tmpfile
+20000 records written out of 9520433 scanned in document tmpfile
+22000 records written out of 10473577 scanned in document tmpfile
+24000 records written out of 11407121 scanned in document tmpfile
+26000 records written out of 12291333 scanned in document tmpfile
+28000 records written out of 13388253 scanned in document tmpfile
+30000 records written out of 14632209 scanned in document tmpfile
+32000 records written out of 15730959 scanned in document tmpfile
+34000 records written out of 16969397 scanned in document tmpfile
+36000 records written out of 18260867 scanned in document tmpfile
+38000 records written out of 19529959 scanned in document tmpfile
+40000 records written out of 20685337 scanned in document tmpfile
+42000 records written out of 21859235 scanned in document tmpfile
+44000 records written out of 23237609 scanned in document tmpfile
+46000 records written out of 24822327 scanned in document tmpfile
+48000 records written out of 25910747 scanned in document tmpfile
+50000 records written out of 27067537 scanned in document tmpfile
+50386 records written out of 27248728 scanned in document tmpfile ( 4.8 %)
+Part 30 scan complete.
+Cumulative 1307228 records written out of 706932408 scanned
+2000 records written out of 1012119 scanned in document tmpfile
+4000 records written out of 1933787 scanned in document tmpfile
+6000 records written out of 2835499 scanned in document tmpfile
+8000 records written out of 3950917 scanned in document tmpfile
+10000 records written out of 4795507 scanned in document tmpfile
+12000 records written out of 5827663 scanned in document tmpfile
+14000 records written out of 6798095 scanned in document tmpfile
+16000 records written out of 7698317 scanned in document tmpfile
+18000 records written out of 8545755 scanned in document tmpfile
+20000 records written out of 9538091 scanned in document tmpfile
+22000 records written out of 10445305 scanned in document tmpfile
+24000 records written out of 11347163 scanned in document tmpfile
+26000 records written out of 12634123 scanned in document tmpfile
+28000 records written out of 13702587 scanned in document tmpfile
+30000 records written out of 14970603 scanned in document tmpfile
+32000 records written out of 16291583 scanned in document tmpfile
+34000 records written out of 17687567 scanned in document tmpfile
+36000 records written out of 18862037 scanned in document tmpfile
+38000 records written out of 20046931 scanned in document tmpfile
+40000 records written out of 21251605 scanned in document tmpfile
+42000 records written out of 22850155 scanned in document tmpfile
+44000 records written out of 24305325 scanned in document tmpfile
+46000 records written out of 25531951 scanned in document tmpfile
+48000 records written out of 26619095 scanned in document tmpfile
+50000 records written out of 27527357 scanned in document tmpfile
+50134 records written out of 27612342 scanned in document tmpfile ( 4.92 %)
+Part 31 scan complete.
+Cumulative 1357362 records written out of 734544750 scanned
+2000 records written out of 916249 scanned in document tmpfile
+4000 records written out of 1856909 scanned in document tmpfile
+6000 records written out of 2872487 scanned in document tmpfile
+8000 records written out of 3813697 scanned in document tmpfile
+10000 records written out of 4747611 scanned in document tmpfile
+12000 records written out of 5689071 scanned in document tmpfile
+14000 records written out of 6732955 scanned in document tmpfile
+16000 records written out of 7754521 scanned in document tmpfile
+18000 records written out of 8673575 scanned in document tmpfile
+20000 records written out of 9673465 scanned in document tmpfile
+22000 records written out of 11005395 scanned in document tmpfile
+24000 records written out of 12100781 scanned in document tmpfile
+26000 records written out of 13406973 scanned in document tmpfile
+28000 records written out of 14788071 scanned in document tmpfile
+30000 records written out of 16327439 scanned in document tmpfile
+32000 records written out of 17749343 scanned in document tmpfile
+34000 records written out of 19245009 scanned in document tmpfile
+36000 records written out of 21021735 scanned in document tmpfile
+38000 records written out of 22126911 scanned in document tmpfile
+40000 records written out of 23059145 scanned in document tmpfile
+42000 records written out of 24117413 scanned in document tmpfile
+44000 records written out of 25139515 scanned in document tmpfile
+46000 records written out of 26139977 scanned in document tmpfile
+48000 records written out of 27238543 scanned in document tmpfile
+50000 records written out of 28241815 scanned in document tmpfile
+51044 records written out of 28694978 scanned in document tmpfile ( 4.91 %)
+Part 32 scan complete.
+Cumulative 1408406 records written out of 763239728 scanned
+2000 records written out of 942713 scanned in document tmpfile
+4000 records written out of 1897039 scanned in document tmpfile
+6000 records written out of 2805831 scanned in document tmpfile
+8000 records written out of 3688631 scanned in document tmpfile
+10000 records written out of 4700367 scanned in document tmpfile
+12000 records written out of 5519937 scanned in document tmpfile
+14000 records written out of 6628507 scanned in document tmpfile
+16000 records written out of 7965721 scanned in document tmpfile
+18000 records written out of 9526249 scanned in document tmpfile
+20000 records written out of 11211489 scanned in document tmpfile
+22000 records written out of 12902621 scanned in document tmpfile
+24000 records written out of 14443379 scanned in document tmpfile
+26000 records written out of 15950487 scanned in document tmpfile
+28000 records written out of 17831291 scanned in document tmpfile
+30000 records written out of 19139625 scanned in document tmpfile
+32000 records written out of 20446501 scanned in document tmpfile
+34000 records written out of 21389395 scanned in document tmpfile
+36000 records written out of 22412903 scanned in document tmpfile
+38000 records written out of 23449873 scanned in document tmpfile
+40000 records written out of 24304599 scanned in document tmpfile
+42000 records written out of 25278695 scanned in document tmpfile
+44000 records written out of 26211919 scanned in document tmpfile
+46000 records written out of 27166089 scanned in document tmpfile
+48000 records written out of 28172551 scanned in document tmpfile
+49027 records written out of 28689944 scanned in document tmpfile ( 5.08 %)
+Part 33 scan complete.
+Cumulative 1457433 records written out of 791929672 scanned
+2000 records written out of 927481 scanned in document tmpfile
+4000 records written out of 1956751 scanned in document tmpfile
+6000 records written out of 3079405 scanned in document tmpfile
+8000 records written out of 4057791 scanned in document tmpfile
+10000 records written out of 5017223 scanned in document tmpfile
+12000 records written out of 6042181 scanned in document tmpfile
+14000 records written out of 6898799 scanned in document tmpfile
+16000 records written out of 8265379 scanned in document tmpfile
+18000 records written out of 9823993 scanned in document tmpfile
+20000 records written out of 11434271 scanned in document tmpfile
+22000 records written out of 13027277 scanned in document tmpfile
+24000 records written out of 14609691 scanned in document tmpfile
+26000 records written out of 16137547 scanned in document tmpfile
+28000 records written out of 17778795 scanned in document tmpfile
+30000 records written out of 19472671 scanned in document tmpfile
+32000 records written out of 20604141 scanned in document tmpfile
+34000 records written out of 21635283 scanned in document tmpfile
+36000 records written out of 22787329 scanned in document tmpfile
+38000 records written out of 23709311 scanned in document tmpfile
+40000 records written out of 24717759 scanned in document tmpfile
+42000 records written out of 25728467 scanned in document tmpfile
+44000 records written out of 26929515 scanned in document tmpfile
+46000 records written out of 27898357 scanned in document tmpfile
+48000 records written out of 28877211 scanned in document tmpfile
+48583 records written out of 29101316 scanned in document tmpfile ( 5.18 %)
+Part 34 scan complete.
+Cumulative 1506016 records written out of 821030988 scanned
+2000 records written out of 1042149 scanned in document tmpfile
+4000 records written out of 2017457 scanned in document tmpfile
+6000 records written out of 3079027 scanned in document tmpfile
+8000 records written out of 4099853 scanned in document tmpfile
+10000 records written out of 5022497 scanned in document tmpfile
+12000 records written out of 5929083 scanned in document tmpfile
+14000 records written out of 7211969 scanned in document tmpfile
+16000 records written out of 8768483 scanned in document tmpfile
+18000 records written out of 10311271 scanned in document tmpfile
+20000 records written out of 11866265 scanned in document tmpfile
+22000 records written out of 13388409 scanned in document tmpfile
+24000 records written out of 14940185 scanned in document tmpfile
+26000 records written out of 16423751 scanned in document tmpfile
+28000 records written out of 17923015 scanned in document tmpfile
+30000 records written out of 19305859 scanned in document tmpfile
+32000 records written out of 20565349 scanned in document tmpfile
+34000 records written out of 21795225 scanned in document tmpfile
+36000 records written out of 22775819 scanned in document tmpfile
+38000 records written out of 23690715 scanned in document tmpfile
+40000 records written out of 24674021 scanned in document tmpfile
+42000 records written out of 25688565 scanned in document tmpfile
+44000 records written out of 26733579 scanned in document tmpfile
+46000 records written out of 27780635 scanned in document tmpfile
+47509 records written out of 28489896 scanned in document tmpfile ( 5.45 %)
+Part 35 scan complete.
+Cumulative 1553525 records written out of 849520884 scanned
+2000 records written out of 1058461 scanned in document tmpfile
+4000 records written out of 2118973 scanned in document tmpfile
+6000 records written out of 3063011 scanned in document tmpfile
+8000 records written out of 3949455 scanned in document tmpfile
+10000 records written out of 4896523 scanned in document tmpfile
+12000 records written out of 5990041 scanned in document tmpfile
+14000 records written out of 7104941 scanned in document tmpfile
+16000 records written out of 8369571 scanned in document tmpfile
+18000 records written out of 9928829 scanned in document tmpfile
+20000 records written out of 11543873 scanned in document tmpfile
+22000 records written out of 12979545 scanned in document tmpfile
+24000 records written out of 14453439 scanned in document tmpfile
+26000 records written out of 16011535 scanned in document tmpfile
+28000 records written out of 17662269 scanned in document tmpfile
+30000 records written out of 18855021 scanned in document tmpfile
+32000 records written out of 20095253 scanned in document tmpfile
+34000 records written out of 21250253 scanned in document tmpfile
+36000 records written out of 22381881 scanned in document tmpfile
+38000 records written out of 23461819 scanned in document tmpfile
+40000 records written out of 24550047 scanned in document tmpfile
+42000 records written out of 25525543 scanned in document tmpfile
+44000 records written out of 26468509 scanned in document tmpfile
+46000 records written out of 27582389 scanned in document tmpfile
+48000 records written out of 28624845 scanned in document tmpfile
+50000 records written out of 29650425 scanned in document tmpfile
+50259 records written out of 29751560 scanned in document tmpfile ( 5.39 %)
+Part 36 scan complete.
+Cumulative 1603784 records written out of 879272444 scanned
+2000 records written out of 1291203 scanned in document tmpfile
+4000 records written out of 2317497 scanned in document tmpfile
+6000 records written out of 3346439 scanned in document tmpfile
+8000 records written out of 4323569 scanned in document tmpfile
+10000 records written out of 5376897 scanned in document tmpfile
+12000 records written out of 6615629 scanned in document tmpfile
+14000 records written out of 7613535 scanned in document tmpfile
+16000 records written out of 9210863 scanned in document tmpfile
+18000 records written out of 10318175 scanned in document tmpfile
+20000 records written out of 12070357 scanned in document tmpfile
+22000 records written out of 13575511 scanned in document tmpfile
+24000 records written out of 15100843 scanned in document tmpfile
+26000 records written out of 16592055 scanned in document tmpfile
+28000 records written out of 18222755 scanned in document tmpfile
+30000 records written out of 19849109 scanned in document tmpfile
+32000 records written out of 21098885 scanned in document tmpfile
+34000 records written out of 22268965 scanned in document tmpfile
+36000 records written out of 23652743 scanned in document tmpfile
+38000 records written out of 24617649 scanned in document tmpfile
+40000 records written out of 25870977 scanned in document tmpfile
+42000 records written out of 27031735 scanned in document tmpfile
+44000 records written out of 28477299 scanned in document tmpfile
+46000 records written out of 29618741 scanned in document tmpfile
+46585 records written out of 29881856 scanned in document tmpfile ( 5.52 %)
+Part 37 scan complete.
+Cumulative 1650369 records written out of 909154300 scanned
+2000 records written out of 1220795 scanned in document tmpfile
+4000 records written out of 2392935 scanned in document tmpfile
+6000 records written out of 3527311 scanned in document tmpfile
+8000 records written out of 4652459 scanned in document tmpfile
+10000 records written out of 5810069 scanned in document tmpfile
+12000 records written out of 6796599 scanned in document tmpfile
+14000 records written out of 7948465 scanned in document tmpfile
+16000 records written out of 9177541 scanned in document tmpfile
+18000 records written out of 10243681 scanned in document tmpfile
+20000 records written out of 13708261 scanned in document tmpfile
+22000 records written out of 15342769 scanned in document tmpfile
+24000 records written out of 16821301 scanned in document tmpfile
+26000 records written out of 18301539 scanned in document tmpfile
+28000 records written out of 19870925 scanned in document tmpfile
+30000 records written out of 21639021 scanned in document tmpfile
+32000 records written out of 23875963 scanned in document tmpfile
+34000 records written out of 25413625 scanned in document tmpfile
+36000 records written out of 26631569 scanned in document tmpfile
+38000 records written out of 27906589 scanned in document tmpfile
+40000 records written out of 29165881 scanned in document tmpfile
+42000 records written out of 30392607 scanned in document tmpfile
+42829 records written out of 30741516 scanned in document tmpfile ( 5.51 %)
+Part 38 scan complete.
+Cumulative 1693198 records written out of 939895816 scanned
+2000 records written out of 1110627 scanned in document tmpfile
+4000 records written out of 2500479 scanned in document tmpfile
+6000 records written out of 3801623 scanned in document tmpfile
+8000 records written out of 5044807 scanned in document tmpfile
+10000 records written out of 6128519 scanned in document tmpfile
+12000 records written out of 7207105 scanned in document tmpfile
+14000 records written out of 8355153 scanned in document tmpfile
+16000 records written out of 9565187 scanned in document tmpfile
+18000 records written out of 10855139 scanned in document tmpfile
+20000 records written out of 12147277 scanned in document tmpfile
+22000 records written out of 13419209 scanned in document tmpfile
+24000 records written out of 15354123 scanned in document tmpfile
+26000 records written out of 17091045 scanned in document tmpfile
+28000 records written out of 18873031 scanned in document tmpfile
+30000 records written out of 22339789 scanned in document tmpfile
+32000 records written out of 24233807 scanned in document tmpfile
+34000 records written out of 26023455 scanned in document tmpfile
+36000 records written out of 27363169 scanned in document tmpfile
+38000 records written out of 28488653 scanned in document tmpfile
+40000 records written out of 29907797 scanned in document tmpfile
+41972 records written out of 31398848 scanned in document tmpfile ( 5.53 %)
+Part 39 scan complete.
+Cumulative 1735170 records written out of 971294664 scanned
+2000 records written out of 1910093 scanned in document tmpfile
+4000 records written out of 3593789 scanned in document tmpfile
+6000 records written out of 6048201 scanned in document tmpfile
+8000 records written out of 8925409 scanned in document tmpfile
+10000 records written out of 12522999 scanned in document tmpfile
+12000 records written out of 22210659 scanned in document tmpfile
+14000 records written out of 26390601 scanned in document tmpfile
+16000 records written out of 27265945 scanned in document tmpfile
+18000 records written out of 28357579 scanned in document tmpfile
+20000 records written out of 29652845 scanned in document tmpfile
+22000 records written out of 30786575 scanned in document tmpfile
+22171 records written out of 30866358 scanned in document tmpfile ( 5.69 %)
+Part 40 scan complete.
+Cumulative 1757341 records written out of 1002161022 scanned
+2000 records written out of 1462603 scanned in document tmpfile
+4000 records written out of 4850717 scanned in document tmpfile
+6000 records written out of 6108417 scanned in document tmpfile
+8000 records written out of 7971389 scanned in document tmpfile
+8243 records written out of 8099796 scanned in document tmpfile ( 21.8 %)
+Part 41 scan complete.
+Cumulative 1765584 records written out of 1010260818 scanned

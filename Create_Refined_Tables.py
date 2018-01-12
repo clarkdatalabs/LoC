@@ -27,10 +27,9 @@ c.execute('''CREATE TABLE IF NOT EXISTS Location (
                )''')
 
 c.execute('''CREATE TABLE IF NOT EXISTS Subject_Location_Refined (
-                recordID integer,
                 subjectLocation TEXT,
                 subjectLocationRefined TEXT,
-                FOREIGN KEY (recordID) REFERENCES Record(recordID),
+                FOREIGN KEY (subjectLocation) REFERENCES Subject_Location(subjectLocation),
                 FOREIGN KEY (subjectLocationRefined) references Location(locationString)
                 )'''
   )
@@ -48,15 +47,15 @@ pd.read_csv('USAstates.csv').to_sql('USAstates', disk_engine, if_exists='replace
 
 #------------------------#
 
-#Build out Locations table with any locations. Simultaneously builds Geocache table.
+#Build out Location table with any locations. Simultaneously builds Geocache table.
 conn = sqlite3.connect(db)
 c = conn.cursor()
 locations = c.execute('SELECT DISTINCT subjectLocationRefined FROM Subject_Location_Refined').fetchall()
 
-cache = geocache.Cache("LoC.db")
+cache = geocache.Cache(db)
 
 i=0
-for locationTuple in locations[0:2]:
+for locationTuple in locations:
     i+=1
     locationString = locationTuple[0]
     #get the geoBLOB to parse
@@ -110,8 +109,10 @@ c.execute('''CREATE VIEW Book_Subject_Location AS
                        (Subject_Location_Refined s 
                            LEFT JOIN Location l 
                                ON s.subjectLocationRefined = l.locationString)
+                        LEFT JOIN Subject_Location t
+                            ON t.subjectLocation = s.subjectLocation
                         LEFT JOIN Record r
-                            ON r.recordID = s.recordID
+                            ON r.recordID = t.recordID
                         LEFT JOIN Countries c
                             ON l.ISOalpha2 = c.ISOalpha2
                         LEFT JOIN USAstates u

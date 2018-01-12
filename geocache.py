@@ -42,7 +42,7 @@ class Cache(object):
             #if no row found, call geocoder and save results to cache
             if geoBLOB == False:
                 print("querying: \'", locationString, "\'", sep='')
-                geoBLOB = geolocator.geocode(query = locationString,
+                geoBLOB = geolocator.geocode(query = locationString.translate({ord(c): None for c in '<>'}), #<> cause errors in Bing
                                              exactly_one=True,
                                              include_country_code=True)
                 geoBLOB = self.save_to_cache(locationString, geoBLOB)

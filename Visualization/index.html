@@ -6,16 +6,20 @@
 		<meta charset="utf-8">
 		<style>
 		svg {
-			background: #2E2F4F;
+			background: #2E2F4F; 
 		}
 		.country {
 			/* fill: #cccccc; */
 			stroke: white;
 			stroke-width: 0.5;
 		}
+		.highlighted {
+			stroke: #fffb32;
+			stroke-width: 1.5;
+		}
 		.selected {
 			stroke: orange;
-			stroke-width: 2;
+			stroke-width: 2.5;
 		}
 		div.tooltip {	
 	    	position: absolute;			
@@ -43,7 +47,7 @@
 		<script src="https://d3js.org/topojson.v2.min.js"></script>
 		
 		<!-- Run the actual visualization -->
-		<script src="scripts/visualization.js"></script>
+		<script src="scripts/visualization_by_year.js"></script>
 		
 	</body>
 
