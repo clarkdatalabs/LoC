@@ -11,3 +11,11 @@ This table is imported from Location_joined_cleaned.csv, which consists of
 import sqlite3
 import pandas as pd
 from sqlalchemy import create_engine
+
+
+db="../LoC.db"
+conn = sqlite3.connect(db)
+c = conn.cursor()
+
+
+
