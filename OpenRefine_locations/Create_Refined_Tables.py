@@ -10,7 +10,7 @@ from sqlalchemy import create_engine
 from geopy.geocoders import Bing
 
 
-db="LoC.db"
+db="../database/LoC.db"
 conn = sqlite3.connect(db)
 c = conn.cursor()
 
@@ -39,7 +39,7 @@ conn.close()
 
 #save refined data to database
 disk_engine = create_engine('sqlite:///LoC.db')
-pd.read_csv('ClusteringFiles/subject_location_refined.csv').to_sql('Subject_Location_Refined', disk_engine, if_exists='replace', index=False)
+pd.read_csv('../OpenRefine_locations/subject_location_refined.csv').to_sql('Subject_Location_Refined', disk_engine, if_exists='replace', index=False)
 
 #save country code and state code table to db
 pd.read_csv('Countries.csv', encoding = "ISO-8859-1").to_sql('Countries', disk_engine, if_exists='replace', index=False)
@@ -121,40 +121,6 @@ c.execute('''CREATE VIEW Book_Subject_Location AS
                 ORDER BY r.pubDate
                ''') 
 conn.commit()
-
-#create table aggregating all years together
-locationSummary = pd.read_sql_query('''SELECT 
-                                 ISOnumeric3,
-                                 ISOalpha2,
-                                 ISOalpha3,
-                                 countryName, 
-                                 COUNT(recordID) AS count
-                             FROM 
-                                 Book_Subject_Location
-                             WHERE
-                                 ISOnumeric3 IS NOT NULL
-                             GROUP BY
-                                 ISOnumeric3''', conn)
-                                 
-locationSummary.to_csv("location_summary.csv", index = False)
-
-#create table of counts grouping by year and country
-locationByYear = pd.read_sql_query('''SELECT 
-                                 ISOnumeric3,
-                                 ISOalpha2,
-                                 ISOalpha3,
-                                 countryName,
-                                 pubDate, 
-                                 COUNT(recordID) AS count
-                             FROM 
-                                 Book_Subject_Location
-                             WHERE
-                                 ISOnumeric3 IS NOT NULL
-                             GROUP BY
-                                 ISOnumeric3, pubDate ''', conn)
-                                 
-locationByYear.to_csv("location_by_year.csv", index = False)
-
 conn.close()
    
 
