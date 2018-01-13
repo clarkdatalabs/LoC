@@ -18,4 +18,19 @@ conn = sqlite3.connect(db)
 c = conn.cursor()
 
 
+c.execute('''CREATE TABLE IF NOT EXISTS Location_2 (
+               locationString STRING PRIMARY KEY, 
+               latitude REAL, 
+               longitude REAL, 
+               ISOalpha2 TEXT, 
+               USAstate TEXT
+               )''')
+
+conn.commit()
+conn.close()
+
+#save refined data to database
+disk_engine = create_engine('sqlite:///../database/LoC.db')
+pd.read_csv('Location_joined_cleaned.csv').to_sql('Location_2', disk_engine, if_exists='replace', index=False)
+
 

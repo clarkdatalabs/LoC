@@ -5,7 +5,7 @@ import sqlite3
 from geopy.geocoders import Bing
 
 class Cache(object):
-    def __init__(self, fn='LoC.db'):
+    def __init__(self, fn='../database/LoC.db'):
         self.conn = conn = sqlite3.connect(fn)
         cur = conn.cursor()
         cur.execute('CREATE TABLE IF NOT EXISTS '

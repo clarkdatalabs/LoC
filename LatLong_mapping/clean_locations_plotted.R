@@ -17,4 +17,6 @@ data <- data %>%
             , ISOalpha2 = country
             , USAstate = USAstate)
  
-write.csv(data, file = "Location_joined_cleaned.csv")
+write.csv(data
+          , file = "Location_joined_cleaned.csv"
+          , row.names = FALSE)

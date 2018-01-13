@@ -7,7 +7,6 @@ import sqlite3
 import pandas as pd
 import geocache
 from sqlalchemy import create_engine
-from geopy.geocoders import Bing
 
 
 db="../database/LoC.db"
@@ -42,8 +41,8 @@ disk_engine = create_engine('sqlite:///LoC.db')
 pd.read_csv('../OpenRefine_locations/subject_location_refined.csv').to_sql('Subject_Location_Refined', disk_engine, if_exists='replace', index=False)
 
 #save country code and state code table to db
-pd.read_csv('Countries.csv', encoding = "ISO-8859-1").to_sql('Countries', disk_engine, if_exists='replace', index=False)
-pd.read_csv('USAstates.csv').to_sql('USAstates', disk_engine, if_exists='replace', index=False)
+pd.read_csv('../database/Countries.csv', encoding = "ISO-8859-1").to_sql('Countries', disk_engine, if_exists='replace', index=False)
+pd.read_csv('../database/USAstates.csv').to_sql('USAstates', disk_engine, if_exists='replace', index=False)
 
 #------------------------#
 
