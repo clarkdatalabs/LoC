@@ -1,67 +1,130 @@
 
-var margin = { top: 50, left: 50, right: 50, bottom: 50},
-	height = 750 - margin.top - margin.bottom,
-	width = 1200 - margin.right - margin.left;
+//var margin = { top: 50, left: 50, right: 50, bottom: 50},
+//	height = 750 - margin.top - margin.bottom,
+//	width = 1200 - margin.right - margin.left;
 
-var svg = d3.select("#map")
-	.append("svg")
-	.attr("height", height + margin.top + margin.bottom)
-	.attr("width", width + margin.right + margin.left)
+var startYear = 1400;
+	endYear = 2010;
+	timeStep = 100;
+	year = startYear;
+
+/*	
+var timeStep1 = d3.scaleLinear()
+		.domain([startYear,endYear])
+		.range([1	0,200])
+*/
+		
+var mapWidth = mapBox.clientWidth;
+	mapHeight = mapBox.clientHeight;
+	histWidth = histBox.clientWidth;
+	histHeight = histBox.clientHeight;
+
+console.log("width", mapWidth)
+console.log("height", mapHeight)
+
+
+var hist = d3.select("#hist")
 	.append("g")
-	.attr("transform", "translate(" + margin.left + "," + margin.top +")");
+	
+
+var map = d3.select("#map")
+	.append("g")
+
+	//.append("svg")
+	//.attr("height", height + margin.top + margin.bottom)
+	//.attr("width", width + margin.right + margin.left)
+	//.attr("height", "100%")
+	//.attr("width", "100%")
+	//.attr("transform", "translate(" + margin.left + "," + margin.top +")");
 
 /*Create a new projection using mercator (geoMercator)
 and center it (translate)*/
 var projection = d3.geoMercator()
-	.translate([width /2, height / 1.8])	/*center in our visual*/
-	.scale(190)
-	
+	.translate([mapWidth/2, mapHeight/1.8])	/*center in our visual*/
+	.scale(mapWidth/6.3)		/*initial scale factor for the geojson map I'm using*/
+
 //create a path using (geoPath) using the projection
 var path = d3.geoPath()
 	.projection(projection)
+	
+	/*add event listener to scale on window resize*/
+/*
+var addEvent = function(object, type, callback) {
+    if (object == null || typeof(object) == 'undefined') return;
+    if (object.addEventListener) {
+        object.addEventListener(type, callback, false);
+    } else if (object.attachEvent) {
+        object.attachEvent("on" + type, callback);
+    } else {
+        object["on"+type] = callback;
+    }
+};
 
-	//Define MoveToFront function
+addEvent(window, "resize", function(event) {
+	console.log('resized');
+	var mapWidth = mapBox.clientWidth;
+		mapHeight = mapBox.clientHeight;
+	//svg
+	//	.translate([mapWidth/2, mapHeight/1.8])	
+	//	.scale(mapWidth/6.3)
+	var projection = d3.geoMercator()
+		.translate([mapWidth/2, mapHeight/1.8])	//center in our visual
+		.scale(mapWidth/6.3)		//initial scale factor for the geojson map I'm using
+	var path = d3.geoPath()
+		.projection(projection)
+	console.log("width", mapWidth)
+	console.log("height", mapHeight)
+});
+*/	
+	
+//Define MoveToFront function
 d3.selection.prototype.moveToFront = function() {
   return this.each(function(){
     this.parentNode.appendChild(this);
   });
 };
 
+//var overlay = d3.select("#container")
+//	.append("svg")
+//	.attr("position", "absolute")
+
 
 //Prep the tooltip bits, initial display is hidden (copied from http://bl.ocks.org/mstanaland/6100713)
-var tooltip = svg.append("g")
-  .attr("class", "tooltip")
-  .style("display", "none");
+var tooltip = d3.select("#map")
+	.append("g")
+	.attr("class", "tooltip")
+	.style("display", "none");
     
 tooltip.append("rect")
-  .attr("width", 30)
   .attr("height", 20)
   .attr("fill", "white")
   .style("opacity", 0.5);
 
 tooltip.append("text")
-  .attr("x", 15)
+  .attr("x", 5)
   .attr("dy", "1.2em")
-  .style("text-anchor", "middle")
+  .style("text-anchor", "left")
   .attr("font-size", "12px")
   .attr("font-weight", "bold");
 
 /*Read in topojson*/
 d3.queue()
-	.defer(d3.json, "Visualization/worldv1.json")
-	.defer(d3.csv, "Visualization/location_by_year.csv")
+	.defer(d3.json, "Visualization/world.json")
+	.defer(d3.csv, "Visualization/location_by_year_smooth.csv")
+	.defer(d3.csv, "Visualization/countries.csv")
+	//.defer(d3.csv, "Visualization/location_by_year.csv")
 	.await(ready);
 	
 /*Once map and LoC data are loaded, do the following*/
-function ready (error, data, LoC) {
+function ready (error, data, LoC, countryLookup) {
 	//convert counts to integers
 	LoC.forEach(function(d){
-		d.count = +d.count;
+		d.smooth5 = +d.smooth5;
 	})
 	
 	//Define color scale function
-	var maxCount = d3.max(LoC, function(d) { return d.count; });
-	console.log("maxCount: ", maxCount)
+	var maxCount = d3.max(LoC, function(d) { return d.smooth5; });	
+	//console.log("maxCount: ", maxCount)
 	var baseColor = "#cccccc"
 	var countryColor = d3.scalePow()
 		.exponent(.2)
@@ -76,21 +139,37 @@ function ready (error, data, LoC) {
 						LoCData[d.ISOnumeric3] = {}
 					}
 					LoCData[d.ISOnumeric3][parseInt(d.pubDate)]= countryColor(d.count)
-					}
+		}
 	)
+
+	//build country lookup table
+	var country = {};
+	countryLookup.forEach( function(d){
+		if (LoCData[d.ISOnumeric3] == undefined){
+			LoCData[d.ISOnumeric3] = {}
+		}
+		country[d.ISOnumeric3] = d.countryName
+		}
+	)
+
 	
+
+
 	//LOG DATA TO CONSOLE
-	console.log("worldv1.json data:")
+	console.log("world.json data:")
 	console.log(data)
-	console.log("location_by_year.csv:")
+	console.log("LoC:")
 	console.log(LoC)
 	console.log("LoCData:")
-	console.log(LoCData);
+	console.log(LoCData)
+	console.log("country:")
+	console.log(country);
 	
+
 
 	//extract country features and draw initial country shapes
 	var countries = topojson.feature(data, data.objects.countries).features	
-	countrySelection = svg.selectAll(".country")
+	countrySelection = map.selectAll(".country")
 		.data(countries)
 		.enter().append("path")
 		.attr("class", "country")
@@ -98,6 +177,7 @@ function ready (error, data, LoC) {
 		.attr("fill", null)
 		.attr("fill", baseColor)
 		
+		//TOOLTIP
 		//add the class 'highlighted' on mouseover
 		.on('mouseover', function(d) {
 			d3.select(this)
@@ -106,8 +186,11 @@ function ready (error, data, LoC) {
 			d3.selectAll(".selected")	//bring selected country to the front
 				.moveToFront();
 			tooltip
-				.style("display", null)
-				.moveToFront();
+				.style("display", null) //let default display style show
+				.moveToFront()
+				.select("text").text(country[parseInt(d.id)]);
+			var dim = tooltip.select("text").node().getBBox();
+			tooltip.select("rect").attr("width", dim.width+10);
 		})
 		//remove the class 'highlighted' on mouseout
 		.on('mouseout', function(d) {
@@ -115,44 +198,43 @@ function ready (error, data, LoC) {
 				.classed("highlighted", false);
 			tooltip.style("display", "none"); //hide tooltip on mousout
 		})
-		.on('mousemove', function(d) {	//move tooltip to follow mouse
-			var xPosition = d3.mouse(this)[0] - 15;
+		//move tooltip to follow mouse
+		.on('mousemove', function(d) {
+			var xPosition = d3.mouse(this)[0] + 10;
 			var yPosition = d3.mouse(this)[1] - 25;
 			tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-			tooltip.select("text").text(d.id);
+
 		})
 		
 		//add the class 'selected' on click
 		.on('click', function(d){
-			clickSelection = d3.select(this)
-				clickSelection.classed("selected", function(d){
-					if (clickSelection.classed("selected")){
-						return false	//if already selected, unselect it
-					} else {
-						d3.selectAll(".selected").classed("selected", false);	//clear previous selection
-						clickSelection.moveToFront()	//bring selected country to front of draw order
-						return true}
-				});
+			console.log(country[parseInt(d.id)]);
+			var selectionName = "Global"
+			var clickSelection = d3.select(this)
+			clickSelection.classed("selected", function(d){
+				if (clickSelection.classed("selected")){
+					return false	//if already selected, unselect it
+				} else {
+					selectionName = country[parseInt(d.id)];
+					d3.selectAll(".selected").classed("selected", false);	//clear previous selection
+					clickSelection.moveToFront()	//bring selected country to front of draw order
+					return true}
+			});
+			console.log("clicky message:", selectionName)
 			tooltip.moveToFront();
-			//how do I access data attributes of clickSelection?
-			console.log("clickSelection: " + clickSelection.id)
-			
+			countryName.textContent = selectionName;
 		})
-	
-		//function for updating the tooltip location
-	function updateTooltip() {
-		var xPosition = d3.mouse(this)[0] - 15;
-		var yPosition = d3.mouse(this)[1] - 25;
-		tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-	}
 		
 	
 	//updates the graphic periodically
 	function updateDraw(elapsed){
 	//draw countries
-		year = (Math.floor(elapsed/timeStep) % 210) +1800
+		year = (( (year  % startYear) + 1 ) % (endYear - startYear)) + startYear
+		console.log("year:", year)
+		//year = (Math.floor(elapsed/timeStep) % (endYear - startYear)) +startYear
 		
-		console.log("year: " + year	)
+		yearBox.textContent = year
+		
 				
 			//change fill color to scale with count
 			countrySelection.transition().attr("fill", function(d){
@@ -169,7 +251,6 @@ function ready (error, data, LoC) {
 	
 
 	//run updateDraw after every timeStep milliseconds
-	var timeStep = 200
 	d3.interval(updateDraw,timeStep);		
 	}
 	

@@ -16,7 +16,7 @@ scanned = 0
 
 #assumes all book parts are compressed and in subfolder BooksXML/
 for part in range(1, 42):
-    filePath = 'BooksXML/BooksAll.2014.part' + str(part).zfill(2) + '.xml.gz'
+    filePath = '../BooksXML/BooksAll.2014.part' + str(part).zfill(2) + '.xml.gz'
     with open('tmpfile', "wb") as tmp:
         shutil.copyfileobj(gzip.open(filePath), tmp)
     X = XML2DB('tmpfile', 'LoC.db')
@@ -24,5 +24,4 @@ for part in range(1, 42):
     scanned += X.get("scan")
     print("Part", part, "scan complete.")
     print("Cumulative", written, "records written out of", scanned, "scanned")
-
     # print(tmp)
