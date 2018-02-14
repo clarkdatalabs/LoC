@@ -70,7 +70,7 @@ GQ,GNQ,226,Equatorial Guinea
 ER,ERI,232,Eritrea
 EE,EST,233,Estonia
 ET,ETH,231,Ethiopia
-FK,FLK,238,Falkland Islands (Malvinas)
+FK,FLK,238,Falkland Islands
 FO,FRO,234,Faroe Islands
 FJ,FJI,242,Fiji
 FI,FIN,246,Finland
@@ -116,11 +116,11 @@ JO,JOR,400,Jordan
 KZ,KAZ,398,Kazakhstan
 KE,KEN,404,Kenya
 KI,KIR,296,Kiribati
-KP,PRK,408,Democratic People's Republic of Korea
+KP,PRK,408,DPRK
 KR,KOR,410,Korea
 KW,KWT,414,Kuwait
 KG,KGZ,417,Kyrgyzstan
-LA,LAO,418,Lao People's Democratic Republic
+LA,LAO,418,Laos
 LV,LVA,428,Latvia
 LB,LBN,422,Lebanon
 LS,LSO,426,Lesotho
@@ -168,7 +168,7 @@ NO,NOR,578,Norway
 OM,OMN,512,Oman
 PK,PAK,586,Pakistan
 PW,PLW,585,Palau
-PS,PSE,275,"Palestine, State of"
+PS,PSE,275,Palestine
 PA,PAN,591,Panama
 PG,PNG,598,Papua New Guinea
 PY,PRY,600,Paraguay
@@ -233,9 +233,9 @@ TV,TUV,798,Tuvalu
 UG,UGA,800,Uganda
 UA,UKR,804,Ukraine
 AE,ARE,784,United Arab Emirates
-GB,GBR,826,United Kingdom of Great Britain and Northern Ireland
+GB,GBR,826,United Kingdom
 US,USA,840,United States of America
-UM,UMI,581,United States Minor Outlying Islands
+UM,UMI,581,U.S. Minor Outlying Islands
 UY,URY,858,Uruguay
 UZ,UZB,860,Uzbekistan
 VU,VUT,548,Vanuatu

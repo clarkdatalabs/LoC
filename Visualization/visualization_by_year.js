@@ -26,6 +26,9 @@ console.log("height", mapHeight)
 var hist = d3.select("#hist")
 	.append("g")
 	
+console.log("histWidth", histWidth)
+console.log("hist SVG width", hist.clientWidth)
+	
 
 var map = d3.select("#map")
 	.append("g")
