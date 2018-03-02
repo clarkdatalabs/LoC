@@ -112,9 +112,9 @@ tooltip.append("text")
 
 /*Read in topojson*/
 d3.queue()
-	.defer(d3.json, "Visualization/world.json")
-	.defer(d3.csv, "Visualization/location_by_year_smooth.csv")
-	.defer(d3.csv, "Visualization/countries.csv")
+	.defer(d3.json, "world.json")
+	.defer(d3.csv, "location_by_year_smooth.csv")
+	.defer(d3.csv, "countries.csv")
 	//.defer(d3.csv, "Visualization/location_by_year.csv")
 	.await(ready);
 	
