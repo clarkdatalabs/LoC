@@ -4,19 +4,10 @@ var startYear = 1400;
 	endYear = 2010;
 	timeStep = 100;
 	year = startYear;
+	noDataColor = "#cccccc"
+	maxColor = "red"
+	minColor = "#8798b2"
 	
-	
-	/*baseColor = 
-	"#8798b2", "red"
-	
-		var baseColor = "#cccccc"
-	var countryColor = d3.scalePow()
-		.exponent(.2)
-		.domain([0,maxCount])
-		.range(["#8798b2", "red"])
-*/
-
-
 //define map size based on screen		
 var mapWidth = mapBox.clientWidth;
 	mapHeight = mapBox.clientHeight;
@@ -96,11 +87,11 @@ function ready (error, data, LoC, countryLookup) {
 	
 	//Define color scale function
 	var maxCount = d3.max(LoC, function(d) { return d.smooth5; });	
-	var baseColor = "#cccccc"
+	//var baseColor = "#cccccc"
 	var countryColor = d3.scalePow()
 		.exponent(.2)
 		.domain([0,maxCount])
-		.range(["#8798b2", "red"])
+		.range([minColor, maxColor])
 		.clamp(true);
 	
 	//build LoCData data object	
@@ -147,7 +138,7 @@ function ready (error, data, LoC, countryLookup) {
 		.attr("class", "country")
 		.attr("d", path)
 		.attr("fill", null)
-		.attr("fill", baseColor)
+		.attr("fill", noDataColor)
 		
 		//TOOLTIP
 		//add the class 'highlighted' on mouseover
@@ -215,8 +206,8 @@ function ready (error, data, LoC, countryLookup) {
 					if (LoCData[parseInt(d.id)][year] != undefined){
 						//console.log(LoCData[parseInt(d.id)][parseInt(year)])
 						return LoCData[parseInt(d.id)][year];
-					} else {return baseColor}
-				} else {return baseColor}
+					} else {return noDataColor}
+				} else {return noDataColor}
 			})
 			
 	}
