@@ -1,19 +1,12 @@
 
-//var margin = { top: 50, left: 50, right: 50, bottom: 50},
-//	height = 750 - margin.top - margin.bottom,
-//	width = 1200 - margin.right - margin.left;
-
+//define basic visualization parameters
 var startYear = 1400;
 	endYear = 2010;
 	timeStep = 100;
 	year = startYear;
 
-/*	
-var timeStep1 = d3.scaleLinear()
-		.domain([startYear,endYear])
-		.range([1	0,200])
-*/
-		
+
+//define map size based on screen		
 var mapWidth = mapBox.clientWidth;
 	mapHeight = mapBox.clientHeight;
 	histWidth = histBox.clientWidth;
@@ -33,52 +26,19 @@ console.log("hist SVG width", hist.clientWidth)
 var map = d3.select("#map")
 	.append("g")
 
-	//.append("svg")
-	//.attr("height", height + margin.top + margin.bottom)
-	//.attr("width", width + margin.right + margin.left)
-	//.attr("height", "100%")
-	//.attr("width", "100%")
-	//.attr("transform", "translate(" + margin.left + "," + margin.top +")");
+
 
 /*Create a new projection using mercator (geoMercator)
 and center it (translate)*/
 var projection = d3.geoMercator()
 	.translate([mapWidth/2, mapHeight/1.8])	/*center in our visual*/
-	.scale(mapWidth/6.3)		/*initial scale factor for the geojson map I'm using*/
+	.scale(mapWidth/6.3)					/*initial scale factor for the geojson map I'm using*/
 
 //create a path using (geoPath) using the projection
 var path = d3.geoPath()
 	.projection(projection)
 	
-	/*add event listener to scale on window resize*/
-/*
-var addEvent = function(object, type, callback) {
-    if (object == null || typeof(object) == 'undefined') return;
-    if (object.addEventListener) {
-        object.addEventListener(type, callback, false);
-    } else if (object.attachEvent) {
-        object.attachEvent("on" + type, callback);
-    } else {
-        object["on"+type] = callback;
-    }
-};
 
-addEvent(window, "resize", function(event) {
-	console.log('resized');
-	var mapWidth = mapBox.clientWidth;
-		mapHeight = mapBox.clientHeight;
-	//svg
-	//	.translate([mapWidth/2, mapHeight/1.8])	
-	//	.scale(mapWidth/6.3)
-	var projection = d3.geoMercator()
-		.translate([mapWidth/2, mapHeight/1.8])	//center in our visual
-		.scale(mapWidth/6.3)		//initial scale factor for the geojson map I'm using
-	var path = d3.geoPath()
-		.projection(projection)
-	console.log("width", mapWidth)
-	console.log("height", mapHeight)
-});
-*/	
 	
 //Define MoveToFront function
 d3.selection.prototype.moveToFront = function() {
@@ -86,10 +46,6 @@ d3.selection.prototype.moveToFront = function() {
     this.parentNode.appendChild(this);
   });
 };
-
-//var overlay = d3.select("#container")
-//	.append("svg")
-//	.attr("position", "absolute")
 
 
 //Prep the tooltip bits, initial display is hidden (copied from http://bl.ocks.org/mstanaland/6100713)
@@ -112,9 +68,9 @@ tooltip.append("text")
 
 /*Read in topojson*/
 d3.queue()
-	.defer(d3.json, "../world.json")
-	.defer(d3.csv, "../location_by_year_smooth.csv")
-	.defer(d3.csv, "../countries.csv")
+	.defer(d3.json, "world.json")
+	.defer(d3.csv, "location_by_year_smooth.csv")
+	.defer(d3.csv, "countries.csv")
 	//.defer(d3.csv, "Visualization/location_by_year.csv")
 	.await(ready);
 	
@@ -156,7 +112,7 @@ function ready (error, data, LoC, countryLookup) {
 	)
 
 	
-
+/*
 
 	//LOG DATA TO CONSOLE
 	console.log("world.json data:")
@@ -168,6 +124,7 @@ function ready (error, data, LoC, countryLookup) {
 	console.log("country:")
 	console.log(country);
 	
+*/
 
 
 	//extract country features and draw initial country shapes
