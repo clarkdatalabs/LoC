@@ -65,9 +65,9 @@ tooltip.append("text")
 	2. record counts that have been smoothed over a 5 year window
 	3. a lookup table for country names (they weren't included in our topojson data) */
 d3.queue()
-	.defer(d3.json, "/data/world.json")
-	.defer(d3.csv, "/data/location_by_year_smooth.csv")
-	.defer(d3.csv, "/data/countries.csv")
+	.defer(d3.json, "../data/world.json")
+	.defer(d3.csv, "../data/location_by_year_smooth.csv")
+	.defer(d3.csv, "../data/countries.csv")
 	.await(ready);
 	
 /*Once map and LoC data are loaded, do the following*/
@@ -132,16 +132,16 @@ function ready (error, data, LoC, countryLookup) {
 		.attr("fill", noDataColor)
 		
 
-		//Define hover and click behavior - highlighting and tooltip
 		
+		//			==TOOLTIP==
 		//add the class 'highlighted' on mouseover
 		.on('mouseover', function(d) {
 			d3.select(this)
-				//	==HIGHLIGHT==
+				/*	==HIGHLIGHT==
 				.classed("highlighted", true)
 				.moveToFront();
 			d3.selectAll(".selected")	//bring selected country to the front
-				.moveToFront();
+				.moveToFront(); */
 			tooltip
 				.style("display", null) //let default display style show
 				.moveToFront()
@@ -150,12 +150,14 @@ function ready (error, data, LoC, countryLookup) {
 			tooltip.select("rect").attr("width", dim.width+10);
 		})
 		
+		/*		==HIGHLIGHT==
 		//remove the class 'highlighted' on mouseout
 		.on('mouseout', function(d) {
 			d3.select(this)
 				.classed("highlighted", false);
 			tooltip.style("display", "none"); //hide tooltip on mousout
 		})
+		*/
 		
 		//move tooltip to follow mouse
 		.on('mousemove', function(d) {
@@ -165,6 +167,9 @@ function ready (error, data, LoC, countryLookup) {
 
 		})
 
+		
+		
+		/* COUNTRY SELECTION
 		
 		//add the class 'selected' on click
 		.on('click', function(d){
@@ -182,9 +187,10 @@ function ready (error, data, LoC, countryLookup) {
 			});
 			console.log("clicky message:", selectionName)
 			tooltip.moveToFront();
-			header.textContent = selectionName;
+			countryName.textContent = selectionName;
 		})
 		
+		*/
 	
 	//updates the graphic periodically
 	function updateDraw(elapsed){
