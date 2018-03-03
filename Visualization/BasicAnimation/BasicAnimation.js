@@ -64,9 +64,9 @@ tooltip.append("text")
 	2. record counts that have been smoothed over a 5 year window
 	3. a lookup table for country names (they weren't included in our topojson data) */
 d3.queue()
-	.defer(d3.json, "/data/world.json")
-	.defer(d3.csv, "/data/location_by_year_smooth.csv")
-	.defer(d3.csv, "/data/countries.csv")
+	.defer(d3.json, "../data/world.json")
+	.defer(d3.csv, "../data/location_by_year_smooth.csv")
+	.defer(d3.csv, "../data/countries.csv")
 	.await(ready);
 	
 /*Once map and LoC data are loaded, do the following*/

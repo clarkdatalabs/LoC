@@ -4,23 +4,14 @@ var startYear = 1400;
 	endYear = 2010;
 	timeStep = 100;
 	year = startYear;
-
-
+	noDataColor = "#cccccc"
+	maxColor = "red"
+	minColor = "#8798b2"
+	
 //define map size based on screen		
 var mapWidth = mapBox.clientWidth;
 	mapHeight = mapBox.clientHeight;
-	histWidth = histBox.clientWidth;
-	histHeight = histBox.clientHeight;
 
-console.log("width", mapWidth)
-console.log("height", mapHeight)
-
-
-var hist = d3.select("#hist")
-	.append("g")
-	
-console.log("histWidth", histWidth)
-console.log("hist SVG width", hist.clientWidth)
 	
 
 var map = d3.select("#map")
@@ -66,12 +57,14 @@ tooltip.append("text")
   .attr("font-size", "12px")
   .attr("font-weight", "bold");
 
-/*Read in topojson*/
+/*Read in our data:
+	1. our topojson world definitions
+	2. record counts that have been smoothed over a 5 year window
+	3. a lookup table for country names (they weren't included in our topojson data) */
 d3.queue()
-	.defer(d3.json, "world.json")
-	.defer(d3.csv, "location_by_year_smooth.csv")
-	.defer(d3.csv, "countries.csv")
-	//.defer(d3.csv, "Visualization/location_by_year.csv")
+	.defer(d3.json, "/data/world.json")
+	.defer(d3.csv, "/data/location_by_year_smooth.csv")
+	.defer(d3.csv, "/data/countries.csv")
 	.await(ready);
 	
 /*Once map and LoC data are loaded, do the following*/
@@ -83,12 +76,10 @@ function ready (error, data, LoC, countryLookup) {
 	
 	//Define color scale function
 	var maxCount = d3.max(LoC, function(d) { return d.smooth5; });	
-	//console.log("maxCount: ", maxCount)
-	var baseColor = "#cccccc"
 	var countryColor = d3.scalePow()
 		.exponent(.2)
 		.domain([0,maxCount])
-		.range(["#8798b2", "red"])
+		.range([minColor, maxColor])
 		.clamp(true);
 	
 	//build LoCData data object	
@@ -135,7 +126,7 @@ function ready (error, data, LoC, countryLookup) {
 		.attr("class", "country")
 		.attr("d", path)
 		.attr("fill", null)
-		.attr("fill", baseColor)
+		.attr("fill", noDataColor)
 		
 		//TOOLTIP
 		//add the class 'highlighted' on mouseover
@@ -203,8 +194,8 @@ function ready (error, data, LoC, countryLookup) {
 					if (LoCData[parseInt(d.id)][year] != undefined){
 						//console.log(LoCData[parseInt(d.id)][parseInt(year)])
 						return LoCData[parseInt(d.id)][year];
-					} else {return baseColor}
-				} else {return baseColor}
+					} else {return noDataColor}
+				} else {return noDataColor}
 			})
 			
 	}

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+
 	<head>
 		<!-- Page metadata -->
 		<title>Mapping Library of Congress Records</title>
@@ -11,9 +12,8 @@
 		<!-- styles to control layout as appearance -->
 		<style>
 		
-		#VizBlock, #container, html, body {
+		#container, html, body {
 			height: 100%;
-			width: 100%;
 			margin: 0;
 		}
 		
@@ -27,23 +27,17 @@
 			stroke: white;
 			stroke-width: 0.5;
 		}
-		#VizBlock {
-		display: flex;
-		flex: 1 0 0;
-		min-width: 800px;
-		min-height: 500px;
-		justify-content: center;
 		
-		}
+
+		<-! FLEXBOX LAYOUT AND STYLE ->
 		#container {
 			display: flex;
 			flex-direction: column;
 			background-color: rgba(0,0,0,.05);
 			min-width: 600px;
-			max-width: 1200px;
-			min-height: 500px;
-			max-height:1000px;
-			border: 1px solid black;		
+			min-height: 400px;
+			border: 1.5px solid black;
+			
 		}
 		.frame{
 			display: flex;
@@ -67,7 +61,9 @@
 			font: 22px sans-serif;
 			padding: 5px;
 
-		}<- HOVER AND TOOLTIP 
+		}
+
+		<-!  HOVER EFFECTS AND TOOLTIP STYLE ->
 		.highlighted {
 			stroke: #fffb32;
 			stroke-width: 1.5;
@@ -80,21 +76,20 @@
 	    	position: absolute;									
 		    height: 28px;					
 		    padding: 2px;
-		} ->
+		}
 
 		</style>
 	</head>
 	
 	<!-- Define divs and containers for visualization objects -->
 	<body>
-		<div id="VizBlock">	
-			<div id="container">
-				<div id="header" class="textBox frame">Book Records by Subject Country and Publication Date </div>
-				<div id="mapBox" class="frame">
-					<svg id="map"></svg>
-				</div>
-				<div id="yearBox" class="textBox frame" ></div>
+			
+		<div id="container">
+			<div id="header" class="textBox frame">Book Records by Subject Country and Publication Date </div>
+			<div id="mapBox" class="frame">
+				<svg id="map"></svg>
 			</div>
+			<div id="yearBox" class="textBox frame" ></div>
 		</div>
 		
 		<!-- Load the D3 graphing library and topojson library -->
@@ -103,7 +98,6 @@
 		
 		<!-- Run the actual visualization -->
 		<script src="Clean.js"></script>
-		
 		
 		<div> Some text under the visualization </div>
 	
