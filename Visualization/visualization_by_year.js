@@ -3,7 +3,7 @@
 //	height = 750 - margin.top - margin.bottom,
 //	width = 1200 - margin.right - margin.left;
 
-var startYear = 1400;
+var startYear = 1900;
 	endYear = 2010;
 	timeStep = 100;
 	year = startYear;
@@ -112,9 +112,9 @@ tooltip.append("text")
 
 /*Read in topojson*/
 d3.queue()
-	.defer(d3.json, "world.json")
-	.defer(d3.csv, "location_by_year_smooth.csv")
-	.defer(d3.csv, "countries.csv")
+	.defer(d3.json, "data/world.json")
+	.defer(d3.csv, "data/location_by_year_smooth.csv")
+	.defer(d3.csv, "data/countries.csv")
 	//.defer(d3.csv, "Visualization/location_by_year.csv")
 	.await(ready);
 	
