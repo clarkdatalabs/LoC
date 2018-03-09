@@ -9,6 +9,6 @@ Last May, the US Library of Congress made the largest [release](https://www.si.u
 
 # Versions
 
-1. [Basic Animation](https://clarkdatalabs.github.io/library_of_congress/Visualization/BasicAnimation/)
+1. [Basic Animation](https://clarkdatalabs.github.io/library_of_congress/Visualization/vis.md)
 2. [Add a Tooltip](https://clarkdatalabs.github.io/library_of_congress/Visualization/AddTooltip/)
 3. [Add selection](https://clarkdatalabs.github.io/library_of_congress/Visualization/AddSelection/)
