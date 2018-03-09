@@ -12,6 +12,6 @@ BLAH BLAH BLAH
 
 # Versions
 
-1. [link1](https://clarkdatalabs.github.io/library_of_congress/Visualization/BasicAnimation/)
+1. [link1](https://clarkdatalabs.github.io/library_of_congress/Visualization/vis.md)
 2. [link2](https://clarkdatalabs.github.io/library_of_congress/Visualization/AddTooltip/)
 3. [Add selection](https://clarkdatalabs.github.io/library_of_congress/Visualization/AddSelection/)
