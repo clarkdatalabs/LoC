@@ -52,6 +52,10 @@
 			<p>[EXAMPLE OF BAD DATE STRING]</p>
 			
 			<p>We can roughly extract years from these strings by taking the first instance of exactly four consecutive digits using the <a href="https://docs.python.org/3/library/re.html#finding-all-adverbs">regular expression</a> function:</p>
+			
+			<code>re.findall(r'(?&#60!\d)\d{4}(?!\d)', date_string) </code>
+			
+			
 			</section>
 		</div>
 	</body>
