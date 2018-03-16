@@ -62,19 +62,63 @@
 			
 			<div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="n">translate</span><span class="p">({</span><span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">):</span> <span class="bp">None</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s">'[];:?,.'</span><span class="p">})</span></code></pre></div>
 			
-			<code>.translate({ord(c): None for c in '[];:?,.'})</code>
-			
 			<h1>Storing the Parsed Fields</h1>
 			<p>Great, we can parse the records, but we’re going to need to save them somewhere if we hope to use them in our visualization. Each record may have several subject locations, so our data structure needs to handle a one to many relationship. Given that we may be working with several million records that have these fields populated, we’ll use a SQLite database with a couple tables to start:</p>
 			
-			<p><img src="https://github.com/clarkdatalabs/LoC/blob/master/Visualization/images/SQLTableScheme.jpg?raw=true" alt="SQL Tables"></p>
+			<p><img src="https://github.com/clarkdatalabs/LoC/blob/master/Visualization/images/DB_tables_1.png?raw=true" alt="SQL Tables"></p>
 			
 			<p>Once you have <a href="http://www.sqlitetutorial.net/download-install-sqlite/">installed SQLite</a>, the <a href="https://docs.python.org/3/library/sqlite3.html">sqlite3</a> python package makes it easy to create and interact with our SQLite database from our Python script. <a href="http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html">This thorough guide</a> to using sqlite3 might be really helpful, especially if you’re just getting started with SQLite like me.</p>
 			
 			<h1>Geocoding Subject Locations</h1>
 			<p>The big challenge of this project is turning the <code>subjectLocation</code> strings into actual locations that can be mapped. Here’s an example of some of the strings stored in the <code>Subject_Location</code> table:</p>
 			
-			<p><img src="https://github.com/clarkdatalabs/LoC/blob/master/Visualization/images/subjectLocationExample.jpg?raw=true" alt="SQL Tables"></p>
+			<p><img src="https://github.com/clarkdatalabs/LoC/blob/master/Visualization/images/subjectLocationExample.jpg?raw=true" alt="Subject Location Example"></p>
+			
+			<p>We have a mix of countries, cities, states, and descriptions of regions. The plan is to send each of these strings to a service that will geocode it, then return some associated data that we can use to make a map. We’ll use the Python package geopy, which provides access to several different geocoding service APIs (see <a href="https://sunnykrgupta.github.io/a-practical-guide-to-geopy.html">A Practical Guide to Geopy</a>). Let’s consider three different services:</p>
+			
+			<table style="width:100%">
+			  <tr>
+				<th>Service</th>
+				<th>API key required?</th> 
+				<th>Query limits</th>
+			  </tr>
+			  <tr>
+				<td><a href="https://msdn.microsoft.com/en-us/library/gg585136.aspx">Bing Map API</a></td>
+				<td>Yes</td> 
+				<td>see documentation</td>
+			  </tr>
+			  <tr>
+				<td><a href="https://developers.google.com/maps/documentation/geolocation/intro">Google Maps Geocoding</a></td>
+				<td>Yes</td> 
+				<td>2500 / day</td>
+			  </tr>
+			  <tr>
+				<td><a href="https://wiki.openstreetmap.org/wiki/Nominatim">Nominatim (Open Street Map)</a></td>
+				<td>No</td> 
+				<td>1 / second</td>
+			  </tr>
+			</table>
+			
+			<p>After parsing all 4.4 GB (compressed) of XML records, we end up with over 2.6 million location strings. Clearly the query limits are going to be a big factor in deciding which geocoding service to use, and we’ll need to reduce the number of queries sent as much as we can. Restricting to unique strings we end up with 131,170. We can reduce this further by using the tool <a href="http://openrefine.org/">OpenRefine</a> to cluster the collection of unique strings. This groups together similar strings and assigns a single value to each. We end up with 123,008 strings that we will need to geocode. We could manually check the data and eliminate some rows that don’t necessarily make sense for our project (“Solar system” for example), but I’ll just leave them in and consider whatever latitude and longitude is returned to be acceptable noise. </p>
+			
+			<h1>Caching Geocoded Data</h1>
+			
+			<p>Bing had the most generous free usage limits (~50,000 / day) at the time I was doing this geocoding. Even so, it’s fairly critical to create a cache of returned data from geocoding queries. Repeatedly sending the same queries to a geocoding service during development could get you blocked from that service. We may also decide in the future to pull some other elements out of the query return, which would be unavailable if we just saved the latitude and longitude and threw out the rest.</p>
+			<p>The strategy here is to create another SQLite table to store the query terms and results. Query results will be complicated nested dictionary structures. To cache this in our SQL database, we will have to “flatten” it using the Python package <a href="https://docs.python.org/3/library/pickle.html">pickle</a>. An excellent example of the entire caching process can be found in the answers to <a href="https://stackoverflow.com/questions/28397847/most-straightforward-way-to-cache-geocoding-data">this question on stackoverflow</a>.</p>
+			
+			<h1>Point vs. Country data</h1>
+			<p>Let’s consider two possible formats that could be associated with each string: latitude / longitude points, or country codes. Geocoding services should always return a longitude and latitude point for a queried string, but they may not always identify a country code. However, the lat/long point returned for a string like “United States” will fall in the center of the country, and since “United States” is likely to be by far the most common string in the subject location field, plotting longitude and latitude points may incorrectly make Missouri look like the subject of way more writing than the rest of the country.</p>
+			
+			<p>[INSERT GRAPHIC HERE]</p>
+			
+			<p>For this reason, we’ll want to just associate each record with a country. We can turn our longitude and latitude points into country codes pretty simply – by loading them in ArcGIS (or your favorite open source GIS) and spatially joining each point with the country it lies in. For this I used <a href="http://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/">Natural Earth country boundaries</a>. Great, now for each parsed subject location string we should have a refined string, a cached geocoded object, a longitude, a latitude, and an <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO country code</a>. Here’s our database structure:</p>
+
+			<p><img src="https://github.com/clarkdatalabs/LoC/blob/master/Visualization/images/DB_tables_2.png?raw=true" alt="SQL Tables"></p>
+			
+			<p>Joining these tables and summarizing by pubDate and countryCode, we have the following spreadsheet ready for a D3 visualization:</p>
+			
+			<p>[INSERT .CSV SHEET]</p>
+
 			
 			</section>
 		</div>
