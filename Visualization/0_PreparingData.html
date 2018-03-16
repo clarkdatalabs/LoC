@@ -66,7 +66,16 @@
 			
 			<h1>Storing the Parsed Fields</h1>
 			<p>Great, we can parse the records, but we’re going to need to save them somewhere if we hope to use them in our visualization. Each record may have several subject locations, so our data structure needs to handle a one to many relationship. Given that we may be working with several million records that have these fields populated, we’ll use a SQLite database with a couple tables to start:</p>
-						
+			
+			<p><img src="https://github.com/clarkdatalabs/LoC/blob/master/Visualization/images/SQLTableScheme.jpg?raw=true" alt="SQL Tables"></p>
+			
+			<p>Once you have <a href="http://www.sqlitetutorial.net/download-install-sqlite/">installed SQLite</a>, the <a href="https://docs.python.org/3/library/sqlite3.html">sqlite3</a> python package makes it easy to create and interact with our SQLite database from our Python script. <a href="http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html">This thorough guide</a> to using sqlite3 might be really helpful, especially if you’re just getting started with SQLite like me.</p>
+			
+			<h1>Geocoding Subject Locations</h1>
+			<p>The big challenge of this project is turning the <code>subjectLocation</code> strings into actual locations that can be mapped. Here’s an example of some of the strings stored in the <code>Subject_Location</code> table:</p>
+			
+			<p><img src="https://github.com/clarkdatalabs/LoC/blob/master/Visualization/images/subjectLocationExample.jpg?raw=true" alt="SQL Tables"></p>
+			
 			</section>
 		</div>
 	</body>
