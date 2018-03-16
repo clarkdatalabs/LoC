@@ -3,7 +3,7 @@
 > by Daniel Tanner
 
 
-![My helpful screenshot]({{ "/images/LoC_map.jpg" | absolute_url }})
+[My helpful screenshot]({{ "/images/LoC_map.jpg" | absolute_url }})
 
 
 
