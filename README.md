@@ -3,7 +3,7 @@
 > by Daniel Tanner
 
 
-[<img src="/images/LoC_map.jpg">]("Mapping of Library of Congress book subject locations over time")
+[<img src="Visualization/images/LoC_map.jpg">]("Mapping of Library of Congress book subject locations over time")
 
 
 
