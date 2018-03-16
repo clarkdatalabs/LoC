@@ -10,8 +10,8 @@
 		
 		<!-- styles to control layout as appearance -->
 		<link rel="stylesheet", type="text/css", href="style.css">
-		
-		
+	</head>
+	<body>
 		<div class="wrapper">
 			<header>
 				<h1 class="header">LoC</h1>
@@ -22,25 +22,38 @@
 					</li>
 				</ul>
 				<p class="header">
-					"This project is maintained by 	"
-					<a class="header name" href="https://github.com/clarkdatalabs">clarkdatalabs</a>
+					This project is maintained by <a class="header name" href="https://github.com/clarkdatalabs">clarkdatalabs</a>
 				</p>
 				
 			</header>
+			
+			<section>
+			<h1>Choosing MARC Fields</h1>
+			<p>The library of congress organizes their record metadata following the <a href="https://en.wikipedia.org/wiki/MARC_standards">MARC</a> (<strong>MA</strong>chine <strong>R</strong>eadable <strong>C</strong>ataloging) standard. There are many different <a href="https://www.loc.gov/marc/bibliographic/">Library of Congress record metadata fields</a> available. I wanted to do a project with a spatial component, so I settled on manipulations of the following:</p>
+			<ul>
+				<li>
+					<a href="https://www.loc.gov/marc/bibliographic/bd050.html"><strong>050a</strong>: Classification number</a>: Letters at the beginning of classification numbers indicate subject area. May be useful to explore in the future.
+				</li>
+				<li>
+					<a href="https://www.loc.gov/marc/bibliographic/bd260.html"><strong>260c</strong>: Date of publication, distribution, etc.</a>: Our main temporal variable.
+				</li>
+				<li>
+					<a href="https://www.loc.gov/marc/bibliographic/bd650.html"><strong>650a</strong>: Subject Added Entry; Topical term or geographic name entry element</a>: Strings about the subject, including location of the subject matter.
+				</li>
+			</ul>
+			<p>Ok, so I've chosen what I want to work with - but how do you go about getting records and just these fields, in a form that is ready for visualizing?</p>
+			<h1>Parsing XML Record Files </h1>
+			<p>I restricted myself to just book records, which are available in for download in <a href="http://www.loc.gov/cds/products/MDSConnect-books_all.html">41 separate compressed .XML files</a>. Each uncompressed XML file is more than 500 megabytes - this is a lot of data! With files this large, loading them entirely into memory as you would with standard XML parsing methods becomes impractical (especially on my laptop). Instead, we have to use iterative parsing to step through the XML, node by node, without loading the entire tree structure into memory.</p>
+			
+			<p>The Python package lxml provides tools for doing exactly this, namely an implementation of the etree.iterparse() function. There are <a href="http://lxml.de/tutorial.html#event-driven-parsing">some examples</a> of this on the lxml site, but I found this overall <a href="https://www.ibm.com/developerworks/xml/library/x-hiperfparse/">explanation of iterative XML parsing</a> to be really helpful as well. We will want to iterate through “record” items. Then for each one, find all subfields with the tags corresponding to the chosen MARC fields.</p>
+			
+			<p>At this stage, we have some initial cleaning that is also necessary. We might expect 260c – Date of publication, distribution, etc. to be a simple integer year telling us the year if publication. No such luck:</p>
+			
+			<p>[EXAMPLE OF BAD DATE STRING]</p>
+			
+			<p>We can roughly extract years from these strings by taking the first instance of exactly four consecutive digits using the <a href="https://docs.python.org/3/library/re.html#finding-all-adverbs">regular expression</a> function:</p>
+			</section>
 		</div>
-		
-		<section>
-		
-		<h1>Choosing MARC Fields</h1>
-		<p> </p>
-	
-		<h1>Parsing XML Record Files </h1>
-		<p>I restricted myself to just book records, which are available in for download in 41 separate compressed .XML files here. Each uncompressed XML file is more than 500 megabytes. With files this large, loading them entirely into memory as you would with standard XML parsing methods becomes impractical (especially on my laptop). Instead, we have to use iterative parsing to step through the XML node by node without loading the entire tree structure into memory. The Python package lxml provides tools for doing exactly this, namely an implementation of the etree.iterparse() function. There are some examples of this on the lxml site, but I found this overall explanation of iterative XML parsing to be very helpful as well. We will want to iterate through “record” items. Then for each one, find all subfields with the tags corresponding to the chosen MARC fields.</p>
-		
-		<p>At this stage, we have some initial cleaning that is also necessary. We might expect 260c – Date of publication, distribution, etc. to be a simple integer year telling us the year if publication. No such luck: [EXAMPLE OF BAD DATE STRING]</p>
-	
-	
-		</section>
 	</body>
 
 </html>
