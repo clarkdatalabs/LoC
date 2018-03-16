@@ -42,20 +42,28 @@
 				</li>
 			</ul>
 			<p>Ok, so I've chosen what I want to work with - but how do you go about getting records and just these fields, in a form that is ready for visualizing?</p>
+			
 			<h1>Parsing XML Record Files </h1>
 			<p>I restricted myself to just book records, which are available in for download in <a href="http://www.loc.gov/cds/products/MDSConnect-books_all.html">41 separate compressed .XML files</a>. Each uncompressed XML file is more than 500 megabytes - this is a lot of data! With files this large, loading them entirely into memory as you would with standard XML parsing methods becomes impractical (especially on my laptop). Instead, we have to use iterative parsing to step through the XML, node by node, without loading the entire tree structure into memory.</p>
 			
-			<p>The Python package lxml provides tools for doing exactly this, namely an implementation of the etree.iterparse() function. There are <a href="http://lxml.de/tutorial.html#event-driven-parsing">some examples</a> of this on the lxml site, but I found this overall <a href="https://www.ibm.com/developerworks/xml/library/x-hiperfparse/">explanation of iterative XML parsing</a> to be really helpful as well. We will want to iterate through “record” items. Then for each one, find all subfields with the tags corresponding to the chosen MARC fields.</p>
+			<p>The Python package lxml provides tools for doing exactly this, namely an implementation of the <code>etree.iterparse()</code> function. There are <a href="http://lxml.de/tutorial.html#event-driven-parsing">some examples</a> of this on the lxml site, but I found this overall <a href="https://www.ibm.com/developerworks/xml/library/x-hiperfparse/">explanation of iterative XML parsing</a> to be really helpful as well. We will want to iterate through “record” items. Then for each one, find all subfields with the tags corresponding to the chosen MARC fields.</p>
 			
-			<p>At this stage, we have some initial cleaning that is also necessary. We might expect 260c – Date of publication, distribution, etc. to be a simple integer year telling us the year if publication. No such luck:</p>
+			<p>At this stage, we have some initial cleaning that is also necessary. We might expect <em>260c – Date of publication, distribution, etc.</em> to be a simple integer year telling us the year if publication. No such luck:</p>
 			
 			<p>[EXAMPLE OF BAD DATE STRING]</p>
 			
 			<p>We can roughly extract years from these strings by taking the first instance of exactly four consecutive digits using the <a href="https://docs.python.org/3/library/re.html#finding-all-adverbs">regular expression</a> function:</p>
+
 			
-			<code>re.findall(r'(?&#60!\d)\d{4}(?!\d)', date_string) </code>
+			<pre class="highlight"><code><span class="n">re.findall(</span><span class="s">r'(?&lt;!\d)\d{4}(?!\d)'</span><span class="p">,date_string)</span></code></pre>
 			
+			<p>Similarly we might want to strip some of the punctuation out of the subject location strings with the translate method:</p>
 			
+			<code>.translate({ord(c): None for c in '[];:?,.'})</code>
+			
+			<h1>Storing the Parsed Fields</h1>
+			<p>Great, we can parse the records, but we’re going to need to save them somewhere if we hope to use them in our visualization. Each record may have several subject locations, so our data structure needs to handle a one to many relationship. Given that we may be working with several million records that have these fields populated, we’ll use a SQLite database with a couple tables to start:</p>
+						
 			</section>
 		</div>
 	</body>

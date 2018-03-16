@@ -14,5 +14,5 @@ Last May, the US Library of Congress made the largest [release](https://www.si.u
 
 
 ```python
-re.findall(r'(?<!\d)\d{4}(?!\d)', date_string)
+.translate({ord(c): None for c in '[];:?,.'})
 ```
