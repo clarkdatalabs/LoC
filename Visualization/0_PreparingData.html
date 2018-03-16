@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!-- Page metadata -->
+		<title>Mapping Library of Congress Records</title>
+		<meta name="author" content="Dan Tanner">
+		<meta name="description" content="Using D3 to explore Library of Congress book records">
+		<meta charset="utf-8">
+		
+		<!-- styles to control layout as appearance -->
+		<link rel="stylesheet", type="text/css", href="style.css">
+		
+		
+		<div class="wrapper">
+			<header>
+				<h1 class="header">LoC</h1>
+				<p class="header"></p>
+				<ul>
+					<li>
+						<a class="buttons github" href="https://github.com/clarkdatalabs/LoC">View On GitHub</a>
+					</li>
+				</ul>
+				<p class="header">
+					"This project is maintained by 	"
+					<a class="header name" href="https://github.com/clarkdatalabs">clarkdatalabs</a>
+				</p>
+				
+			</header>
+		</div>
+		
+		<section>
+		
+		<h1>Choosing MARC Fields</h1>
+		<p> </p>
+	
+		<h1>Parsing XML Record Files </h1>
+		<p>I restricted myself to just book records, which are available in for download in 41 separate compressed .XML files here. Each uncompressed XML file is more than 500 megabytes. With files this large, loading them entirely into memory as you would with standard XML parsing methods becomes impractical (especially on my laptop). Instead, we have to use iterative parsing to step through the XML node by node without loading the entire tree structure into memory. The Python package lxml provides tools for doing exactly this, namely an implementation of the etree.iterparse() function. There are some examples of this on the lxml site, but I found this overall explanation of iterative XML parsing to be very helpful as well. We will want to iterate through “record” items. Then for each one, find all subfields with the tags corresponding to the chosen MARC fields.</p>
+		
+		<p>At this stage, we have some initial cleaning that is also necessary. We might expect 260c – Date of publication, distribution, etc. to be a simple integer year telling us the year if publication. No such luck: [EXAMPLE OF BAD DATE STRING]</p>
+	
+	
+		</section>
+	</body>
+
+</html>
