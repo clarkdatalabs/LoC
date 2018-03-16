@@ -3,7 +3,7 @@
 > by Daniel Tanner
 
 
-[My helpful screenshot]({{ "/images/LoC_map.jpg" | absolute_url }})
+[<img src="/images/LoC_map.jpg">]("Mapping of Library of Congress book subject locations over time")
 
 
 
