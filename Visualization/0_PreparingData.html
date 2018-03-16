@@ -59,6 +59,9 @@
 			
 			<p>Similarly we might want to strip some of the punctuation out of the subject location strings with the translate method:</p>
 			
+			
+			<div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="n">translate</span><span class="p">({</span><span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">):</span> <span class="bp">None</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s">'[];:?,.'</span><span class="p">})</span></code></pre></div>
+			
 			<code>.translate({ord(c): None for c in '[];:?,.'})</code>
 			
 			<h1>Storing the Parsed Fields</h1>

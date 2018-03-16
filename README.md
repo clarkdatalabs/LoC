@@ -12,7 +12,9 @@ Last May, the US Library of Congress made the largest [release](https://www.si.u
 2. [Add a Tooltip](https://clarkdatalabs.github.io/LoC/Visualization/2_Tooltip.html) - Add a tooltip to display country name on hovering.
 3. [Add selection](https://clarkdatalabs.github.io/LoC/Visualization/3_Selection.html) - Allow for selection of a country on clicking to display country specific data.
 
-
+```python
+re.findall(r'(?<!\d)\d{4}(?!\d)',date_string)
+```
 ```python
 .translate({ord(c): None for c in '[];:?,.'})
 ```
