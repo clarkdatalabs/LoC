@@ -10,6 +10,17 @@
 		
 		<!-- styles to control layout as appearance -->
 		<link rel="stylesheet", type="text/css", href="style.css">
+		<style>
+			table {
+                border-collapse: collapse;
+                border: 2px black solid;
+                font: 12px sans-serif;
+            }
+            td {
+                border: 1px black solid;
+                padding: 5px;
+            }
+		</style>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -115,10 +126,52 @@
 
 			<p><img src="https://github.com/clarkdatalabs/LoC/blob/master/Visualization/images/DB_tables_2.png?raw=true" alt="SQL Tables"></p>
 			
-			<p>Joining these tables and summarizing by pubDate and countryCode, we have the following spreadsheet ready for a D3 visualization:</p>
-			
-			<p>[INSERT .CSV SHEET]</p>
+			<p>Joining these tables and summarizing by <code>pubDate</code> and <code>countryCode</code>, we have the following spreadsheet ready for a D3 visualization:</p>
+						
+			<script src="http://d3js.org/d3.v3.min.js"></script>
+			<!--<script src="d3.min.js?v=3.2.8"></script>-->
+			<script type="text/javascript"charset="utf-8">
+				d3.text("data/location_by_year_EXAMPLE.csv", function(data) {
+					var parsedCSV = d3.csv.parseRows(data);
 
+					var container = d3.select("section")
+						.append("table")
+
+						.selectAll("tr")
+							.data(parsedCSV).enter()
+							.append("tr")
+
+						.selectAll("td")
+							.data(function(d) { return d; }).enter()
+							.append("td")
+							.text(function(d) { return d; });
+				});
+			</script>
+			
+			</section>
+			<section>
+			
+			<p>Finally, since we'll want to animate trends in changes in the number of book records per country over time, we want to make sure that countries don't flicker too much with year to year variances. To do this, I created another copy of this spreadsheet with new columns that simply take the sum of counts across three and five year windows respectively.</p>
+			
+			<script type="text/javascript"charset="utf-8">
+				d3.text("data/location_by_year_smooth_EXAMPLE.csv", function(dataSmooth) {
+					var parsedCSVsmooth = d3.csv.parseRows(dataSmooth);
+
+					var container = d3.select("section")
+						.append("table")
+
+						.selectAll("tr")
+							.data(parsedCSVsmooth).enter()
+							.append("tr")
+
+						.selectAll("td")
+							.data(function(d) { return d; }).enter()
+							.append("td")
+							.text(function(d) { return d; });
+				});
+			</script>
+			
+			<a href="https://clarkdatalabs.github.io/LoC/Visualization/1_BasicAnimation.html">Next: Basic Map Animation</a>
 			
 			</section>
 		</div>
