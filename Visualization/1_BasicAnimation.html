@@ -117,6 +117,12 @@
 			
 			<p>One thing to note: I used a power scale to determine the color gradiant of countries:</p>
 			
+			<div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">countryColor</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">scalePow</span><span class="p">()</span>
+			<span class="p">.</span><span class="nx">exponent</span><span class="p">(.</span><span class="mi">2</span><span class="p">)</span>
+			<span class="p">.</span><span class="nx">domain</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="nx">maxCount</span><span class="p">])</span>
+			<span class="p">.</span><span class="nx">range</span><span class="p">([</span><span class="nx">minColor</span><span class="p">,</span> <span class="nx">maxColor</span><span class="p">])</span>
+			<span class="p">.</span><span class="nx">clamp</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+	</code></pre></div>
 			
 			<p>Alternatively, we could use quantized color steps using d3.scaleThreshold, which would make differences between countries more obvious (<a href="http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f">Bostock example</a>). 
 			
