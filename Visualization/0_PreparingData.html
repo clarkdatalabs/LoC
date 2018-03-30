@@ -127,8 +127,8 @@
 			<p><img src="https://github.com/clarkdatalabs/LoC/blob/master/Visualization/images/DB_tables_2.png?raw=true" alt="SQL Tables"></p>
 			
 			<p>Joining these tables and summarizing by <code>pubDate</code> and <code>countryCode</code>, we have the following spreadsheet ready for a D3 visualization:</p>
-			</section>
-			<section>
+			
+			<div>
 			<script src="https://d3js.org/d3.v3.min.js"></script>
 			<!--<script src="d3.min.js?v=3.2.8"></script>-->
 			<script type="text/javascript"charset="utf-8">
@@ -149,13 +149,11 @@
 				});
 			</script>
 			
-			</section>
-			<section>
+			</div>
 			
 			<p>Finally, since we'll want to animate trends in changes in the number of book records per country over time, we want to make sure that countries don't flicker too much with year to year variances. To do this, I created another copy of this spreadsheet with new columns that simply take the sum of counts across three and five year windows respectively.</p>
 			
-			</section>
-			<section>
+			<div>
 			
 			<script type="text/javascript"charset="utf-8">
 				d3.text("data/location_by_year_smooth_EXAMPLE.csv", function(dataSmooth) {
@@ -174,6 +172,8 @@
 							.text(function(d) { return d; });
 				});
 			</script>
+			
+			</div>
 			
 			<a href="https://clarkdatalabs.github.io/LoC/Visualization/1_BasicAnimation.html">Next: Basic Map Animation</a>
 			

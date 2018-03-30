@@ -18,3 +18,11 @@ re.findall(r'(?<!\d)\d{4}(?!\d)',date_string)
 ```python
 .translate({ord(c): None for c in '[];:?,.'})
 ```
+
+```javascript
+	var countryColor = d3.scalePow()
+		.exponent(.2)
+		.domain([0,maxCount])
+		.range([minColor, maxColor])
+		.clamp(true);
+```
