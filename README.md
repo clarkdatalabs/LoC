@@ -20,9 +20,5 @@ re.findall(r'(?<!\d)\d{4}(?!\d)',date_string)
 ```
 
 ```javascript
-var countryColor = d3.scalePow()
-	.exponent(.2)
-	.domain([0,maxCount])
-	.range([minColor, maxColor])
-	.clamp(true);
+year = (( (year  % startYear) + 1 ) % (endYear - startYear)) + startYear
 ```
