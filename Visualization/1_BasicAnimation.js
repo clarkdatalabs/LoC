@@ -190,7 +190,7 @@ function ready (error, data, LoC, countryLookup) {
 	//updates the graphic periodically
 	function updateDraw(elapsed){
 	//draw countries
-		year = (( (year  % startYear) + 1 ) % (endYear - startYear)) + startYear
+		year = startYear + ((1 + year  % startYear) % (endYear - startYear))
 		console.log("year:", year)
 		//year = (Math.floor(elapsed/timeStep) % (endYear - startYear)) +startYear
 		

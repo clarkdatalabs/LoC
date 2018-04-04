@@ -20,5 +20,5 @@ re.findall(r'(?<!\d)\d{4}(?!\d)',date_string)
 ```
 
 ```javascript
-year = (( (year  % startYear) + 1 ) % (endYear - startYear)) + startYear
+year = startYear + ((1 + year  % startYear) % (endYear - startYear))
 ```

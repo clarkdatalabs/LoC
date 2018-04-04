@@ -132,6 +132,9 @@
 			<ul>
 				<li>Define an <code>updateDraw</code> function that will be called every time we want to alter country color, i.e. every time we change the year.</li>
 				<li>Use <code>d3.interval(updateDraw,timeStep)</code> to call this function every [<code>timestep</code>] milliseconds.</li>
+				<li>Increment the year counter: <div class="highlight"><pre class="highlight"><code><span class="nx">year</span> <span class="o">=</span> <span class="p">((</span> <span class="p">(</span><span class="nx">year</span>  <span class="o">%</span> <span class="nx">startYear</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="nx">endYear</span> <span class="o">-</span> <span class="nx">startYear</span><span class="p">))</span> <span class="o">+</span> <span class="nx">startYear</span>
+</code></pre></div>
+				</li>
 			</ul>
 			
 			
