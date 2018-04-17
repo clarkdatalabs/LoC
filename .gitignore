@@ -4,4 +4,6 @@ scratch.py
 LoC.db
 .Rhistory
 .idea/
+LatLong_mapping/ne_10m_admin_0_countries_lakes/
+LatLong_mapping/location_points/
 

@@ -61,7 +61,12 @@
 			
 			<p>At this stage, we have some initial cleaning that is also necessary. We might expect <em>260c – Date of publication, distribution, etc.</em> to be a simple integer year telling us the year of publication. No such luck:</p>
 			
-			<p>[EXAMPLE OF BAD DATE STRING]</p>
+<pre class="highlight"><code> 
+<span class="nt">&lt;datafield</span> <span class="na">tag=</span><span class="s">"260"</span> <span class="na">ind1=</span><span class="s">" "</span> <span class="na">ind2=</span><span class="s">" "</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;subfield</span> <span class="na">code=</span><span class="s">"a"</span><span class="nt">&gt;</span>New York city,<span class="nt">&lt;/subfield&gt;</span>
+	<span class="nt">&lt;subfield</span> <span class="na">code=</span><span class="s">"b"</span><span class="nt">&gt;</span>Dau publishing co.,<span class="nt">&lt;/subfield&gt;</span>
+	<span class="nt">&lt;subfield</span> <span class="na">code=</span><span class="s">"c"</span><span class="nt">&gt;</span>c1899.<span class="nt">&lt;/subfield&gt;</span>
+</code></pre>
 			
 			<p>We can roughly extract years from these strings by taking the first instance of exactly four consecutive digits using the <a href="https://docs.python.org/3/library/re.html#finding-all-adverbs">regular expression</a> function:</p>
 
@@ -118,9 +123,9 @@
 			<p>The strategy here is to create another SQLite table to store the query terms and results. Query results will be complicated nested dictionary structures. To cache this in our SQL database, we will have to “flatten” it using the Python package <a href="https://docs.python.org/3/library/pickle.html">pickle</a>. An excellent example of the entire caching process can be found in the answers to <a href="https://stackoverflow.com/questions/28397847/most-straightforward-way-to-cache-geocoding-data">this question on stackoverflow</a>.</p>
 			
 			<h1>Point vs. Country data</h1>
-			<p>Let’s consider two possible formats that could be associated with each string: latitude / longitude points, or country codes. Geocoding services should always return a longitude and latitude point for a queried string, but they may not always identify a country code. However, the lat/long point returned for a string like “United States” will fall in the center of the country, and since “United States” is likely to be by far the most common string in the subject location field, plotting longitude and latitude points may incorrectly make Missouri look like the subject of way more writing than the rest of the country.</p>
+			<p>Let’s consider two possible formats that could be associated with each string: latitude / longitude points, or country codes. Geocoding services should always return a longitude and latitude point for a queried string, but they may not always identify a country code. However, the lat/long point returned for a string like “United States” will fall in the center of the country, and since “United States” is likely to be by far the most common string in the subject location field, plotting longitude and latitude points may incorrectly make Missouri look like the subject of way more writing than the rest of the country. Making a simple point density map illustrates how many points are mapped to the central point of China:</p>
 			
-			<p>[INSERT GRAPHIC HERE]</p>
+			<img src="images/point_density_example.png" alt="Point density map illustrating that many of the points in China were simply mapped to its centroid.">
 			
 			<p>For this reason, we’ll want to just associate each record with a country. We can turn our longitude and latitude points into country codes pretty simply – by loading them in ArcGIS (or your favorite open source GIS) and spatially joining each point with the country it lies in. For this I used <a href="http://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/">Natural Earth country boundaries</a>. Great, now for each parsed subject location string we should have a refined string, a cached geocoded object, a longitude, a latitude, and an <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO country code</a>. Here’s our database structure:</p>
 
