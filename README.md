@@ -19,6 +19,9 @@ re.findall(r'(?<!\d)\d{4}(?!\d)',date_string)
 .translate({ord(c): None for c in '[];:?,.'})
 ```
 
-```javascript
-year = startYear + ((1 + year  % startYear) % (endYear - startYear))
+```xml
+ <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="a">New York city,</subfield>
+    <subfield code="b">Dau publishing co.,</subfield>
+    <subfield code="c">c1899.</subfield>
 ```

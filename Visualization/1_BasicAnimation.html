@@ -103,13 +103,12 @@
 		<script src="1_BasicAnimation.js"></script>
 
 		<section>
+			Download: <a href="https://github.com/clarkdatalabs/LoC/blob/master/Visualization/1_BasicAnimation.js">javascript</a>, <a href="https://github.com/clarkdatalabs/LoC/blob/master/Visualization/1_BasicAnimation.html">html</a>, <a href="https://github.com/clarkdatalabs/LoC/tree/master/Visualization/data">data</a>
 			<h1>Using D3</h1>
-			<p>If you are just getting started with .js and D3 as I was, I'd recommend starting with a founational tutorial like <a href="https://square.github.io/intro-to-d3/">this one</a>. One great thing about developing visualizations using D3 are the <a href="https://bl.ocks.org/mbostock">many, many examples</a> published by one its the key developers, including code chuncks. However, integrating multiple of these features into the same visualization is not always straightforward. This page and each following will incrementally build up our visualization, highlighting key examples, resources, and challenges of implementing each additional feature.</p>
+			<p>If you are just getting started with JavaScript and D3 as I was, I'd recommend starting with a foundational tutorial like <a href="https://square.github.io/intro-to-d3/">this one</a>. One great thing about developing visualizations using D3 are the <a href="https://bl.ocks.org/mbostock">many, many examples</a> published by one its the key developers, including code exeprts. However, integrating multiple of these features into the same visualization is not always straightforward. This page and each following will incrementally build up our visualization, highlighting key examples, resources, and challenges of implementing each additional feature.</p>
 			
 			<h1>Making Maps in D3</h1>
-			<p>We want to make a map using D3, a pretty common task with <a href="https://bost.ocks.org/mike/map/">plenty</a> <a href="https://bl.ocks.org/mbostock/4180634">of</a> <a href="https://bl.ocks.org/mbostock/d4021aa4dccfd65edffd">examples</a>. To do this, we will need a TopoJSON representation of country boundaries. TopoJSON is a JSON format for representing geographic data. It is an extension of the GeoJSON format which also includes a topology, meaning features can share boundary points and lines, reducing file size and also encoding adjacency.</p>
-			
-			<ul><li><a href="https://github.com/topojson/topojson-specification/blob/master/README.md#1-introduction">Learn more about the TopoJSON format</a></li></ul>
+			<p>We want to make a map using D3, a pretty common task with <a href="https://bost.ocks.org/mike/map/">plenty</a> <a href="https://bl.ocks.org/mbostock/4180634">of</a> <a href="https://bl.ocks.org/mbostock/d4021aa4dccfd65edffd">examples</a>. To do this, we will need a TopoJSON representation of country boundaries. TopoJSON is a data-exchange format for representing geographic data. It is an extension of the JSON and GeoJSON formats, but with the addition of a topology, meaning features can share boundary points and lines, which reduces file size and encodes adjacency. (<a href="https://github.com/topojson/topojson-specification/blob/master/README.md#1-introduction">Learn more about the TopoJSON format</a>)</p>
 			
 			<p>I found a <a href="https://unpkg.com/world-atlas@1.1.4/world/110m.json">suitable TopoJSON</a> after browsing a few examples of D3 world map examples online. This was my first D3 project, so I needed a bit more hand holding to get up and running. This video gives a great explanation of the whole process of mapping, projections, and binding data to a static map for display:</p>
 			
@@ -124,22 +123,27 @@
 			<span class="p">.</span><span class="nx">clamp</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
 	</code></pre></div>
 			
-			<p>The <code>maxCount</code> constant is calculated to be the largest number of records for a single country in a single year. Alternatively, we could use quantized color steps using d3.scaleThreshold, which would make differences between countries more obvious (<a href="http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f">Bostock example</a>). 
+			<p>The <code>maxCount</code> constant is calculated to be the largest number of records for a single country in a single year. Alternatively, we could use quantized color steps using <code>d3.scaleThreshold</code>, which would make differences between countries more obvious (<a href="http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f">Bostock example</a>). 
 			
 			<h1>Adding Animation</h1>
-			Once we've figured out how to use this countryColor function to color countries statically for a single year, we can add animation by doing the following:
+			Once we've figured out how to use our <code>countryColor</code> function to color countries statically for a single year, we can add animation by doing the following:
 			
 			<ul>
-				<li>Define an <code>updateDraw</code> function that will be called every time we want to alter country color, i.e. every time we change the year.</li>
+				<li>Define an <code>updateDraw</code> function that will be called every time we want to alter country color (i.e. every time we increment the year).</li>
 				<li>Use <code>d3.interval(updateDraw,timeStep)</code> to call this function every [<code>timestep</code>] milliseconds.</li>
-				<li>Increment the year counter: <div class="highlight"><pre class="highlight"><code><span class="nx">year</span> <span class="o">=</span> <span class="p">((</span> <span class="p">(</span><span class="nx">year</span>  <span class="o">%</span> <span class="nx">startYear</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="nx">endYear</span> <span class="o">-</span> <span class="nx">startYear</span><span class="p">))</span> <span class="o">+</span> <span class="nx">startYear</span>
-</code></pre></div>
+				<li>Within <code>updateDraw</code>, increment the year counter: <div class="highlight"><pre class="highlight"><code><span class="nx">year</span> <span class="o">=</span> <span class="nx">startYear</span> <span class="o">+</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="nx">year</span>  <span class="o">%</span> <span class="nx">startYear</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="nx">endYear</span> <span class="o">-</span> <span class="nx">startYear</span><span class="p">))</span></code></pre></div>
+				</li>
+				<li>
+				Use the D3 <a href="https://bost.ocks.org/mike/transition/"><code>.transition</code> method</a> to smoothly change the colors of countries, using the <code>countryColor</code> function we defined earlier and the count for that country in the incremented <code>year</code>.
 				</li>
 			</ul>
+			Files used in this visualization:
+			<a href="https://github.com/clarkdatalabs/LoC/blob/master/Visualization/1_BasicAnimation.js">javascript</a>, <a href="https://github.com/clarkdatalabs/LoC/blob/master/Visualization/1_BasicAnimation.html">html</a>, <a href="https://github.com/clarkdatalabs/LoC/tree/master/Visualization/data">data</a>
 			
 			
 			
-		<a href="https://clarkdatalabs.github.io/LoC/Visualization/2_Tooltip.html">Next: Adding a Tooltip</a>
+			
+		<p><a href="https://clarkdatalabs.github.io/LoC/Visualization/2_Tooltip.html">Next: Adding a Tooltip</a></p>
 		</section>
 		
 		

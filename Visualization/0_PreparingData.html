@@ -40,7 +40,7 @@
 			
 			<section>
 			<h1>Choosing MARC Fields</h1>
-			<p>The library of congress organizes their record metadata following the <a href="https://en.wikipedia.org/wiki/MARC_standards">MARC</a> (<strong>MA</strong>chine <strong>R</strong>eadable <strong>C</strong>ataloging) standard. There are many different <a href="https://www.loc.gov/marc/bibliographic/">Library of Congress record metadata fields</a> available. I wanted to do a project with a spatial component, so I settled on manipulations of the following:</p>
+			<p>The library of congress organizes their record metadata following the <a href="https://en.wikipedia.org/wiki/MARC_standards">MARC</a> (<strong>MA</strong>chine <strong>R</strong>eadable <strong>C</strong>ataloging) standard. There are many different <a href="https://www.loc.gov/marc/bibliographic/">Library of Congress record metadata fields</a> available, but I wanted to do a project with a spatial component, so I settled on manipulations of the following:</p>
 			<ul>
 				<li>
 					<a href="https://www.loc.gov/marc/bibliographic/bd050.html"><strong>050a</strong>: Classification number</a>: Letters at the beginning of classification numbers indicate subject area. May be useful to explore in the future.
@@ -55,11 +55,11 @@
 			<p>Ok, so I've chosen what I want to work with - but how do you go about getting records and just these fields, in a form that is ready for visualizing?</p>
 			
 			<h1>Parsing XML Record Files </h1>
-			<p>I restricted myself to just book records, which are available in for download in <a href="http://www.loc.gov/cds/products/MDSConnect-books_all.html">41 separate compressed .XML files</a>. Each uncompressed XML file is more than 500 megabytes - this is a lot of data! With files this large, loading them entirely into memory as you would with standard XML parsing methods becomes impractical (especially on my laptop). Instead, we have to use iterative parsing to step through the XML, node by node, without loading the entire tree structure into memory.</p>
+			<p>I restricted myself to just book records, which are available for download in <a href="http://www.loc.gov/cds/products/MDSConnect-books_all.html">41 separate compressed .XML files</a>. Each uncompressed XML file is more than 500 megabytes - this is a lot of data! With files this large, loading them entirely into memory as you would with standard XML parsing methods becomes impractical (especially on my laptop). Instead, we have to use iterative parsing to step through the XML, node by node, without loading the entire tree structure into memory.</p>
 			
 			<p>The Python package lxml provides tools for doing exactly this, namely an implementation of the <code>etree.iterparse()</code> function. There are <a href="http://lxml.de/tutorial.html#event-driven-parsing">some examples</a> of this on the lxml site, but I found this overall <a href="https://www.ibm.com/developerworks/xml/library/x-hiperfparse/">explanation of iterative XML parsing</a> to be really helpful as well. We will want to iterate through “record” items. Then for each one, find all subfields with the tags corresponding to the chosen MARC fields.</p>
 			
-			<p>At this stage, we have some initial cleaning that is also necessary. We might expect <em>260c – Date of publication, distribution, etc.</em> to be a simple integer year telling us the year if publication. No such luck:</p>
+			<p>At this stage, we have some initial cleaning that is also necessary. We might expect <em>260c – Date of publication, distribution, etc.</em> to be a simple integer year telling us the year of publication. No such luck:</p>
 			
 			<p>[EXAMPLE OF BAD DATE STRING]</p>
 			
@@ -128,14 +128,14 @@
 			
 			<p>Joining these tables and summarizing by <code>pubDate</code> and <code>countryCode</code>, we have the following spreadsheet ready for a D3 visualization:</p>
 			
-			<div>
+			<div id="t1">
 			<script src="https://d3js.org/d3.v3.min.js"></script>
 			<!--<script src="d3.min.js?v=3.2.8"></script>-->
 			<script type="text/javascript"charset="utf-8">
 				d3.text("data/location_by_year_EXAMPLE.csv", function(data) {
 					var parsedCSV = d3.csv.parseRows(data);
 
-					var container = d3.select("section")
+					var container = d3.select("#t1")
 						.append("table")
 
 						.selectAll("tr")
@@ -151,15 +151,16 @@
 			
 			</div>
 			
+					
 			<p>Finally, since we'll want to animate trends in changes in the number of book records per country over time, we want to make sure that countries don't flicker too much with year to year variances. To do this, I created another copy of this spreadsheet with new columns that simply take the sum of counts across three and five year windows respectively.</p>
 			
-			<div>
+			<div id="t2">
 			
 			<script type="text/javascript"charset="utf-8">
 				d3.text("data/location_by_year_smooth_EXAMPLE.csv", function(dataSmooth) {
 					var parsedCSVsmooth = d3.csv.parseRows(dataSmooth);
 
-					var container = d3.select("section")
+					var container = d3.select("#t2")
 						.append("table")
 
 						.selectAll("tr")
