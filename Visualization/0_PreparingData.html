@@ -127,6 +127,8 @@
 			
 			<img src="images/point_density_example.png" alt="Point density map illustrating that many of the points in China were simply mapped to its centroid.">
 			
+			<a href="data/point_data.csv">Download the point data</a>.
+			
 			<p>For this reason, we’ll want to just associate each record with a country. We can turn our longitude and latitude points into country codes pretty simply – by loading them in ArcGIS (or your favorite open source GIS) and spatially joining each point with the country it lies in. For this I used <a href="http://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/">Natural Earth country boundaries</a>. Great, now for each parsed subject location string we should have a refined string, a cached geocoded object, a longitude, a latitude, and an <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO country code</a>. Here’s our database structure:</p>
 
 			<p><img src="https://github.com/clarkdatalabs/LoC/blob/master/Visualization/images/DB_tables_2.png?raw=true" alt="SQL Tables"></p>
