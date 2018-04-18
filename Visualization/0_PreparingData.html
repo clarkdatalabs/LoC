@@ -43,13 +43,13 @@
 			<p>The library of congress organizes their record metadata following the <a href="https://en.wikipedia.org/wiki/MARC_standards">MARC</a> (<strong>MA</strong>chine <strong>R</strong>eadable <strong>C</strong>ataloging) standard. There are many different <a href="https://www.loc.gov/marc/bibliographic/">Library of Congress record metadata fields</a> available, but I wanted to do a project with a spatial component, so I settled on manipulations of the following:</p>
 			<ul>
 				<li>
-					<a href="https://www.loc.gov/marc/bibliographic/bd050.html"><strong>050a</strong>: Classification number</a>: Letters at the beginning of classification numbers indicate subject area. May be useful to explore in the future.
-				</li>
-				<li>
 					<a href="https://www.loc.gov/marc/bibliographic/bd260.html"><strong>260c</strong>: Date of publication, distribution, etc.</a>: Our main temporal variable.
 				</li>
 				<li>
-					<a href="https://www.loc.gov/marc/bibliographic/bd650.html"><strong>650a</strong>: Subject Added Entry; Topical term or geographic name entry element</a>: Strings about the subject, including location of the subject matter.
+					<a href="https://www.loc.gov/marc/bibliographic/bd650.html"><strong>650a</strong>: Subject Added Entry; Topical term or geographic name entry element</a>: We will geocode strings about subject location, which will become our main spatial variable.
+				</li>
+				<li>
+					<a href="https://www.loc.gov/marc/bibliographic/bd050.html"><strong>050a</strong>: Classification number</a>: Letters at the beginning of classification numbers indicate subject area, which we may explore in the future.
 				</li>
 			</ul>
 			<p>Ok, so I've chosen what I want to work with - but how do you go about getting records and just these fields, in a form that is ready for visualizing?</p>
@@ -115,7 +115,7 @@
 			  </tr>
 			</table>
 			
-			<p>After parsing all 4.4 GB (compressed) of XML records, we end up with over 2.6 million location strings. Clearly the query limits are going to be a big factor in deciding which geocoding service to use, and we’ll need to reduce the number of queries sent as much as we can. Restricting to unique strings we end up with 131,170. We can reduce this further by using the tool <a href="http://openrefine.org/">OpenRefine</a> to cluster the collection of unique strings. This groups together similar strings and assigns a single value to each. We end up with 123,008 strings that we will need to geocode. We could manually check the data and eliminate some rows that don’t necessarily make sense for our project (“Solar system” for example), but I’ll just leave them in and consider whatever latitude and longitude is returned to be acceptable noise. </p>
+			<p>After parsing all 4.4 GB (compressed) of XML records, we end up with over 2.6 million location strings. Clearly the query limits are going to be a big factor in deciding which geocoding service to use, and we’ll need to reduce the number of queries sent as much as we can. Restricting to unique strings we end up with 131,170. We can reduce this further by using the tool <a href="http://openrefine.org/">OpenRefine</a> to identify and cluster similar strings. This groups together similar strings and assigns a single value to each. We end up with 123,008 strings that we will need to geocode. We could manually check the data and eliminate some rows that don’t necessarily make sense for our project (“Solar system” for example), but I’ll just leave them in and consider whatever latitude and longitude is returned to be acceptable noise. </p>
 			
 			<h1>Caching Geocoded Data</h1>
 			
@@ -127,7 +127,7 @@
 			
 			<img src="images/point_density_example.png" alt="Point density map illustrating that many of the points in China were simply mapped to its centroid.">
 			
-			<a href="data/point_data.csv">Download the point data</a>.
+			[<a href="data/point_data.csv">Download the point data</a>]
 			
 			<p>For this reason, we’ll want to just associate each record with a country. We can turn our longitude and latitude points into country codes pretty simply – by loading them in ArcGIS (or your favorite open source GIS) and spatially joining each point with the country it lies in. For this I used <a href="http://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/">Natural Earth country boundaries</a>. Great, now for each parsed subject location string we should have a refined string, a cached geocoded object, a longitude, a latitude, and an <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO country code</a>. Here’s our database structure:</p>
 
