@@ -9,8 +9,7 @@ Last May, the US Library of Congress made the largest [release](https://www.si.u
 
 0. [Preparing the Data](https://clarkdatalabs.github.io/LoC/Visualization/0_PreparingData.html) - Parse massive xml record files, cache and geocode subject locations, aggregate for our visualization.
 1. [Basic Animation](https://clarkdatalabs.github.io/LoC/Visualization/1_BasicAnimation.html) - Build a D3 map that animates changing numbers of records about each country over time.
-2. [Add a Tooltip](https://clarkdatalabs.github.io/LoC/Visualization/2_Tooltip.html) - Add a tooltip to display country name on hovering.
-3. [Add selection](https://clarkdatalabs.github.io/LoC/Visualization/3_Selection.html) - Allow for selection of a country on clicking to display country specific data.
+2. [Add a Tooltip](https://clarkdatalabs.github.io/LoC/Visualization/2_TooltipSelection.html) - Add a tooltip to display country name on hovering. Select a country on click to show record counts for that country.
 
 ```python
 re.findall(r'(?<!\d)\d{4}(?!\d)',date_string)
