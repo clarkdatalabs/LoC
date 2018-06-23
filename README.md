@@ -28,17 +28,20 @@ re.findall(r'(?<!\d)\d{4}(?!\d)',date_string)
 
 ```js
 
-.on('click', function(d){
-	selectionID = null;
-	var clickSelection = d3.select(this)
-	clickSelection.classed("selected", function(d){
-		if (clickSelection.classed("selected")){
-			return false	//if already selected, unselect it
-		} else {
-			selectionID = parseInt(d.id);
-			selectionName = country[parseInt(d.id)];
-			d3.selectAll(".selected").classed("selected", false);	//clear previous selection
-			clickSelection.moveToFront()	//bring selected country to front of draw order
-			return true}
-	});
+var tooltip = d3.select("#map")
+	.append("g")
+	.attr("class", "tooltip")
+	.style("display", "none");
+    
+tooltip.append("rect")
+  .attr("height", 20)
+  .attr("fill", "white")
+  .style("opacity", 0.5);
+
+tooltip.append("text")
+  .attr("x", 5)
+  .attr("dy", "1.2em")
+  .style("text-anchor", "left")
+  .attr("font-size", "12px")
+  .attr("font-weight", "bold");
 ```
