@@ -19,7 +19,6 @@ var selectionID = null;
 var map = d3.select("#map")
 	.append("g")
 
-	
 /*Create a new projection using mercator (geoMercator)
 and center it (translate)*/
 var projection = d3.geoMercator()
@@ -30,7 +29,6 @@ var projection = d3.geoMercator()
 var path = d3.geoPath()
 	.projection(projection)
 	
-
 	
 //Define MoveToFront function
 d3.selection.prototype.moveToFront = function() {
@@ -38,9 +36,6 @@ d3.selection.prototype.moveToFront = function() {
     this.parentNode.appendChild(this);
   });
 };
-
-
-//		==TOOLTIP==
 
 //Prep the tooltip bits, initial display is hidden (copied from http://bl.ocks.org/mstanaland/6100713)
 var tooltip = d3.select("#map")
@@ -116,21 +111,6 @@ function ready (error, data, LoC, countryLookup, yearCount) {
 	}
 	)
 
-	//LOG DATA TO CONSOLE
-	console.log("world.json data:")
-	console.log(data)
-	console.log("LoC:")
-	console.log(LoC)
-	console.log("LoCData:")
-	console.log(LoCData)
-	console.log("country:")
-	console.log(country)
-	console.log("yearCount:")
-	console.log(yearCount);
-	
-
-
-
 	//extract country features and draw initial country shapes
 	var countries = topojson.feature(data, data.objects.countries).features	
 	countrySelection = map.selectAll(".country")
@@ -175,10 +155,8 @@ function ready (error, data, LoC, countryLookup, yearCount) {
 
 		})
 
-		
 		//add the class 'selected' on click
 		.on('click', function(d){
-			console.log(country[parseInt(d.id)]);
 			selectionID = null;
 			var clickSelection = d3.select(this)
 			clickSelection.classed("selected", function(d){
@@ -191,20 +169,15 @@ function ready (error, data, LoC, countryLookup, yearCount) {
 					clickSelection.moveToFront()	//bring selected country to front of draw order
 					return true}
 			});
-			console.log("clicky message:", selectionName)
 			tooltip.moveToFront();
 			//header.textContent = selectionName;
 		})
 		
-	
 	//updates the graphic periodically
 	function updateDraw(elapsed){
 	//draw countries
 		year = (( (year  % startYear) + 1 ) % (endYear - startYear)) + startYear
-		console.log("year:", year)
 		//year = (Math.floor(elapsed/timeStep) % (endYear - startYear)) +startYear
-		
-			
 		
 		yearBox.textContent = year
 		
@@ -222,21 +195,16 @@ function ready (error, data, LoC, countryLookup, yearCount) {
 				+ selectionCount.toLocaleString()
 			}
 				
-		
-				
 			//change fill color to scale with count
 			countrySelection.transition().attr("fill", function(d){
-				//return countryColor(d.id) 
 				if (LoCData[parseInt(d.id)] != undefined){
 					if (LoCData[parseInt(d.id)][year] != undefined){
-						//console.log(LoCData[parseInt(d.id)][parseInt(year)])
 						return LoCData[parseInt(d.id)][year]["color"];
 					} else {return noDataColor}
 				} else {return noDataColor}
 			})
 			
 	}
-	
 
 	//run updateDraw after every timeStep milliseconds
 	d3.interval(updateDraw,timeStep);		

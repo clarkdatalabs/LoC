@@ -123,9 +123,11 @@
 	
 	<p>There are just a few key things we do in here: add the class "<code>selected</doce>" to the clicked object which allows us to change its visual properties in our CSS, store some information about the country selected so we can display its name and record count elsewhere, and finally, if selecting a new country, move that object to the front of the draw order (otherwise the borders will be inconsistent, as borders from neighboring countries higher in the draw order will overlap our selected country's borders).</p>
 	
+	<h1>Hovering & Tooltips</h1>
+	
 	<p>Similarly, we can highlight countries on mouseover using the <code>.on('mouseover', ... )</code> and <code>.on('mouseout', ... )</code> methods, by adding and removing respectively the "<code>highlighted</code>" class.</p>
 	
-	<p>Finally, we add a tooltip for the hover-highlighted country. First we set up rectangle object and text:</p>
+	<p>Finally, we add a tooltip for the hover-highlighted country. I followed <a href="http://bl.ocks.org/mstanaland/6100713">this basic example</a>, but there are many other implementations to choose from. First we set up rectangle object and text:</p>
 	
 <div class="highlight"><pre class="highlight"><code>
 <span class="kd">var</span> <span class="nx">tooltip</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">"#map"</span><span class="p">)</span>
@@ -148,8 +150,16 @@
 
 	<p>Then display or hide the tooltip on mouseover and mouseout respectively. Update the text and rectangle width on mouseover, and translate the tooltip on mousemove so it follows the cursur:</p>
 	
+<div class="highlight"><pre class="highlight"><code>
+<span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'mousemove'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">xPosition</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">mouse</span><span class="p">(</span><span class="k">this</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">yPosition</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">mouse</span><span class="p">(</span><span class="k">this</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">25</span><span class="p">;</span>
+	<span class="nx">tooltip</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"transform"</span><span class="p">,</span> <span class="s2">"translate("</span> <span class="o">+</span> <span class="nx">xPosition</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="nx">yPosition</span> <span class="o">+</span> <span class="s2">")"</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div>
 	
-	
+	Files used in this visualization:
+			<a href="https://github.com/clarkdatalabs/LoC/blob/master/Visualization/2_TooltipSelection.js">javascript</a>, <a href="https://github.com/clarkdatalabs/LoC/blob/master/Visualization/2_TooltipSelection.html">html</a>, <a href="https://github.com/clarkdatalabs/LoC/tree/master/Visualization/data">data</a>
 	
 	</body>
 
