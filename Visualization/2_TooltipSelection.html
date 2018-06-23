@@ -127,6 +127,28 @@
 	
 	<p>Finally, we add a tooltip for the hover-highlighted country. First we set up rectangle object and text:</p>
 	
+<div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">tooltip</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">"#map"</span><span class="p">)</span>
+	<span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">"g"</span><span class="p">)</span>
+	<span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"class"</span><span class="p">,</span> <span class="s2">"tooltip"</span><span class="p">)</span>
+	<span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">"display"</span><span class="p">,</span> <span class="s2">"none"</span><span class="p">);</span>
+    
+<span class="nx">tooltip</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">"rect"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"height"</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"fill"</span><span class="p">,</span> <span class="s2">"white"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">"opacity"</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">);</span>
+
+<span class="nx">tooltip</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">"text"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"dy"</span><span class="p">,</span> <span class="s2">"1.2em"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">"text-anchor"</span><span class="p">,</span> <span class="s2">"left"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"font-size"</span><span class="p">,</span> <span class="s2">"12px"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"font-weight"</span><span class="p">,</span> <span class="s2">"bold"</span><span class="p">);</span>
+</code></pre></div>
+
+	<p>Then display or hide the tooltip on mouseover and mouseout respectively. Update the text and rectangle width on mouseover, and translate the tooltip on mousemove so it follows the cursur:</p>
+	
+	
 	
 	
 	</body>

@@ -28,20 +28,9 @@ re.findall(r'(?<!\d)\d{4}(?!\d)',date_string)
 
 ```js
 
-var tooltip = d3.select("#map")
-	.append("g")
-	.attr("class", "tooltip")
-	.style("display", "none");
-    
-tooltip.append("rect")
-  .attr("height", 20)
-  .attr("fill", "white")
-  .style("opacity", 0.5);
-
-tooltip.append("text")
-  .attr("x", 5)
-  .attr("dy", "1.2em")
-  .style("text-anchor", "left")
-  .attr("font-size", "12px")
-  .attr("font-weight", "bold");
+.on('mousemove', function(d) {
+	var xPosition = d3.mouse(this)[0] + 10;
+	var yPosition = d3.mouse(this)[1] - 25;
+	tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+})
 ```
