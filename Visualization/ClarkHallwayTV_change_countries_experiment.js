@@ -1,6 +1,6 @@
 
 //define basic visualization parameters
-var startYear = 1400; //1400 is a good early start
+var startYear = 1900; //1400 is a good early start
 	endYear = 2010;
 	timeStep = 100;
 	year = startYear;
@@ -14,11 +14,12 @@ var mapWidth = mapBox.clientWidth;
 
 //define global variable to track which country is selected
 var selectionID = null;
-
+var selectionName = null;
 
 var map = d3.select("#map")
 	.append("g")
 
+	
 /*Create a new projection using mercator (geoMercator)
 and center it (translate)*/
 var projection = d3.geoMercator()
@@ -29,6 +30,7 @@ var projection = d3.geoMercator()
 var path = d3.geoPath()
 	.projection(projection)
 	
+
 	
 //Define MoveToFront function
 d3.selection.prototype.moveToFront = function() {
@@ -37,6 +39,8 @@ d3.selection.prototype.moveToFront = function() {
   });
 };
 
+
+//		==TOOLTIP==
 
 //Prep the tooltip bits, initial display is hidden (copied from http://bl.ocks.org/mstanaland/6100713)
 var tooltip = d3.select("#map")
@@ -55,7 +59,6 @@ tooltip.append("text")
   .style("text-anchor", "left")
   .attr("font-size", "12px")
   .attr("font-weight", "bold");
-
   
 
 /*Read in our data:
@@ -113,6 +116,18 @@ function ready (error, data, LoC, countryLookup, yearCount) {
 	}
 	)
 
+	//LOG DATA TO CONSOLE
+	console.log("world.json data:")
+	console.log(data)
+	console.log("LoC:")
+	console.log(LoC)
+	console.log("LoCData:")
+	console.log(LoCData)
+	console.log("country:")
+	console.log(country)
+	console.log("yearCount:")
+	console.log(yearCount);
+
 	//extract country features and draw initial country shapes
 	var countries = topojson.feature(data, data.objects.countries).features	
 	countrySelection = map.selectAll(".country")
@@ -122,91 +137,63 @@ function ready (error, data, LoC, countryLookup, yearCount) {
 		.attr("d", path)
 		.attr("fill", null)
 		.attr("fill", noDataColor)
-		
 
-		//Define hover and click behavior - highlighting and tooltip
-		
-		//add the class 'highlighted' on mouseover
-		.on('mouseover', function(d) {
-			d3.select(this)
-				//	==HIGHLIGHT==
-				.classed("highlighted", true)
-				.moveToFront();
-			d3.selectAll(".selected")	//bring selected country to the front
-				.moveToFront();
-			tooltip
-				.style("display", null) //let default display style show
-				.moveToFront()
-				.select("text").text(country[parseInt(d.id)]);
-			var dim = tooltip.select("text").node().getBBox();
-			tooltip.select("rect").attr("width", dim.width+10);
-		})
-		
-		//remove the class 'highlighted' on mouseout
-		.on('mouseout', function(d) {
-			d3.select(this)
-				.classed("highlighted", false);
-			tooltip.style("display", "none"); //hide tooltip on mousout
-		})
-		
-		//move tooltip to follow mouse
-		.on('mousemove', function(d) {
-			var xPosition = d3.mouse(this)[0] + 10;
-			var yPosition = d3.mouse(this)[1] - 25;
-			tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-
-		})
-
-		//add the class 'selected' on click
-		.on('click', function(d){
-			selectionID = null;
-			var clickSelection = d3.select(this)
-			clickSelection.classed("selected", function(d){
-				if (clickSelection.classed("selected")){
-					return false	//if already selected, unselect it
-				} else {
-					selectionID = parseInt(d.id);
-					selectionName = country[parseInt(d.id)];
-					d3.selectAll(".selected").classed("selected", false);	//clear previous selection
-					clickSelection.moveToFront()	//bring selected country to front of draw order
-					return true}
-			});
-			tooltip.moveToFront();
-			//header.textContent = selectionName;
-		})
-		
+	console.log("countrySelection: ")
+	console.log(countries)
+	
+	//Function to select random country when the page is loaded:
+	var randomCountryID = function (obj) {
+		var keys = Object.keys(obj)
+		return keys[ keys.length * Math.random() << 0];
+	};
+	
+	
 	//updates the graphic periodically
 	function updateDraw(elapsed){
-	//draw countries
-		year = (( (year  % startYear) + 1 ) % (endYear - startYear)) + startYear
-		//year = (Math.floor(elapsed/timeStep) % (endYear - startYear)) +startYear
 		
-		yearBox.textContent = "Year:" + year		
+	//choose an new country whenever the timeline restarts
+	if (year == startYear){
+		selectionID = randomCountryID(country)
+		d3.selectAll(".selected").classed("selected", false);	//clear previous selection
+		countries.select("#selectionID")
+			.classed("selected", true)
+			.moveToFront();
+		}
+	
+	year = (( (year  % startYear) + 1 ) % (endYear - startYear)) + startYear
+	console.log("year:", year)
+			
+	yearBox.textContent = year
+	
+	//change header to display count of records of selected country
+	if (selectionID == null){ //if nothing selected
+		header.textContent = "Library of Congress book records with subject location metadata: " 
+			+ parseInt(year_count[year])
+				.toLocaleString();
+		} else { 		//if country is selected
+		if (LoCData[selectionID][year] != undefined){ 
+			var selectionCount = LoCData[selectionID][year]["count"];
+		}	else { var selectionCount = 0 }
+		header.textContent = "Library of Congress book records about " 
+			+ country[selectionID] + ": " 
+			+ selectionCount.toLocaleString()
+		}
+			
 		
-		//change header to display count of records of selected country
-		if (selectionID == null){
-			header.textContent = "Global Book Records in the Library of Congress with Location Data: " 
-				+ (parseInt(year_count[year]) || 0)
-					.toLocaleString();
-			} else { 
-			if (LoCData[selectionID][year] != undefined){ 
-				var selectionCount = LoCData[selectionID][year]["count"];
-			}	else { var selectionCount = 0 }
-			header.textContent = "LoC book records about " 
-				+ country[selectionID] + ": " 
-				+ selectionCount.toLocaleString()
-			}
-				
-			//change fill color to scale with count
-			countrySelection.transition().attr("fill", function(d){
-				if (LoCData[parseInt(d.id)] != undefined){
-					if (LoCData[parseInt(d.id)][year] != undefined){
-						return LoCData[parseInt(d.id)][year]["color"];
-					} else {return noDataColor}
+		//change fill color to scale with count
+		countrySelection.transition().attr("fill", function(d){
+			//return countryColor(d.id) 
+			if (LoCData[parseInt(d.id)] != undefined){
+				if (LoCData[parseInt(d.id)][year] != undefined){
+					//console.log(LoCData[parseInt(d.id)][parseInt(year)])
+					return LoCData[parseInt(d.id)][year]["color"];
 				} else {return noDataColor}
-			})
+			} else {return noDataColor}
+		})
 			
 	}
+	
+	
 
 	//run updateDraw after every timeStep milliseconds
 	d3.interval(updateDraw,timeStep);		

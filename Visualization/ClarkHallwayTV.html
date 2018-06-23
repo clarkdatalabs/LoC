@@ -74,6 +74,19 @@
 		    height: 28px;					
 		    padding: 2px;
 		}
+		#DPSinfo {
+			position: absolute;	
+	    	align-items: center;
+			left: 30px;
+			top: 700px;
+			width: 350px;
+			justify-content: center;
+			font: 18px sans-serif;
+			padding: 5px;
+			background:white;
+			opacity: .95;
+		}
+		
 
 		</style>
 	</head>
@@ -87,8 +100,12 @@
 					<svg id="map"></svg>
 				</div>
 				<div id="yearBox" class="textBox frame" ></div>
+			<div id="DPSinfo" class="DPSinfo">
+			<p>This project was completed by Daniel Tanner with support from Justin Joque and the Clark Library Digital Project Studio (DPS).</p>
+			<p>Explore all DPS projects at <a href="https://clarklabs.lib.umich.edu/">https://clarklabs.lib.umich.edu/</a>.</p></div>
 			</div>
 		</div>
+		
 		<!-- Load the D3 graphing library and topojson library -->
 		<script src="https://d3js.org/d3.v4.min.js"></script>
 		<script src="https://d3js.org/topojson.v2.min.js"></script>
