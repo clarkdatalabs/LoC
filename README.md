@@ -29,16 +29,16 @@ re.findall(r'(?<!\d)\d{4}(?!\d)',date_string)
 ```js
 
 .on('click', function(d){
-			selectionID = null;
-			var clickSelection = d3.select(this)
-			clickSelection.classed("selected", function(d){
-				if (clickSelection.classed("selected")){
-					return false	//if already selected, unselect it
-				} else {
-					selectionID = parseInt(d.id);
-					selectionName = country[parseInt(d.id)];
-					d3.selectAll(".selected").classed("selected", false);	//clear previous selection
-					clickSelection.moveToFront()	//bring selected country to front of draw order
-					return true}
-			});
+	selectionID = null;
+	var clickSelection = d3.select(this)
+	clickSelection.classed("selected", function(d){
+		if (clickSelection.classed("selected")){
+			return false	//if already selected, unselect it
+		} else {
+			selectionID = parseInt(d.id);
+			selectionName = country[parseInt(d.id)];
+			d3.selectAll(".selected").classed("selected", false);	//clear previous selection
+			clickSelection.moveToFront()	//bring selected country to front of draw order
+			return true}
+	});
 ```
